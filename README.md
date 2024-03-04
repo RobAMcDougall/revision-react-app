@@ -1,8 +1,17 @@
-# React + Vite
+# NoteApp-Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+this app is live on git hub pages on:
 
-Currently, two official plugins are available:
+# project aim:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Technologies used:
+
+# Launch:
+
+# Use examples:
+
+# credits:
+
+This is a collab project between Malak Abdalla, Rob McDougall, Nishan Dudakia and Rares Gamanescu
+
+# updated on:

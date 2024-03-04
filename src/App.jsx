@@ -1,35 +1,34 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
+import { ThemeProvider } from "./context/dark-theme context";
+import { Route, Routes } from "react-router-dom";
+import * as Pages from "./pages";
+import PageWrapper from "./layout/PageWrapper";
+import { AuthProvider } from "./context/Auth";
+import ProtectedRoute from "./Router";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <ThemeProvider>
+      <AuthProvider>
+        <Routes>
+          <Route
+            path="/HomePage"
+            element={<ProtectedRoute redirectTo="/login" />}
+          >
+            <Route path="/HomePage" element={<PageWrapper />}>
+              <Route index element={<Pages.HomePage />} />
+              <Route path="VideoTaking" element={<Pages.VideoTakingPage />} />
+            </Route>
+          </Route>
+
+          <Route path="/" element={<Pages.LandingPage />} />
+          <Route path="/login" element={<Pages.LoginPage />} />
+
+          <Route path="*" element={<Pages.NotFound />} />
+        </Routes>
+      </AuthProvider>
+    </ThemeProvider>
+  );
 }
 
-export default App
+export default App;
