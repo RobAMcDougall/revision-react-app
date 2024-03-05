@@ -8,7 +8,7 @@ afterEach(() => {
     vi.resetAllMocks();
 });
 
-it("should successfully start a backend server", async () => {
+it("should successfully query the database for initial setup", async () => {
     require("./setup");
     expect(mockQuery.mock.calls.length).toBe(1);
     

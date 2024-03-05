@@ -10,7 +10,7 @@ async function register(ctx){
         ctx.body = await Account.createAccount(data);
     } catch (err) {
         ctx.status = 400;
-        ctx.body = err;
+        ctx.body = {error: err.message};
     }
 }
 
@@ -19,14 +19,15 @@ async function login(ctx) {
         const data = ctx.request.body;
         const account = await Account.getAccount(data.username);
         
-        if (!bcrypt.compare(data.password, account.password)) {
-            ctx.throw(400, "Invalid credentials.");
+        if (!await bcrypt.compare(data.password, account.password)) {
+            // noinspection ExceptionCaughtLocallyJS
+            throw new Error("Invalid credentials.");
+        } else {
+            ctx.body = await Session.createSession(account.id);
         }
-
-        ctx.body = await Session.createSession(account.id);
     } catch (err) {
         ctx.status = 400;
-        ctx.body = err;
+        ctx.body = {error: err.message};
     }
 }
 
@@ -36,7 +37,7 @@ async function logout(ctx) {
         ctx.status = 204;
     } catch (err) {
         ctx.status = 400;
-        ctx.body = err;
+        ctx.body = {error: err.message};
     }
 }
 
