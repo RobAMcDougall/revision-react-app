@@ -35,8 +35,10 @@ const VideoPlayer = () => {
       <form onSubmit={handleSubmit} className="form">
         <label className="search-area">
           <input
+            role="textbox"
             className="search-bar"
             type="text"
+            name="Youtube URL"
             value={videoUrl}
             onChange={handleInputChange}
           />
