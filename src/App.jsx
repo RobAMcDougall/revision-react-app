@@ -15,9 +15,9 @@ function App() {
             path="/HomePage"
             element={<ProtectedRoute redirectTo="/login" />}
           > */}
-        <Route path="/HomePage" element={<PageWrapper />}>
-          <Route index element={<Pages.HomePage />} />
-        </Route>
+        {/* <Route path="/HomePage" element={<PageWrapper />}> */}
+          <Route path="/HomePage" element={<Pages.HomePage />} />
+        {/* </Route> */}
         <Route path="/VideoTaking" element={<Pages.VideoTakingPage />} />
         {/* </Route> */}
 
