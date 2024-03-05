@@ -1,6 +1,5 @@
 DROP TABLE IF EXISTS video_note;
 DROP TABLE IF EXISTS video_card;
-DROP TABLE IF EXISTS board;
 DROP TABLE IF EXISTS auth_session;
 DROP TABLE IF EXISTS account;
 
@@ -16,14 +15,9 @@ CREATE TABLE auth_session (
     account INT REFERENCES account
 );
 
-CREATE TABLE board (
-    id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-    account INT REFERENCES account
-);
-
 CREATE TABLE video_card (
     id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-    board INT REFERENCES board,
+    account INT REFERENCES account,
     video_id CHAR(11) NOT NULL,
     resume_timestamp INT
 );
