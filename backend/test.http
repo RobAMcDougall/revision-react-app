@@ -1,0 +1,28 @@
+POST http://localhost:8080/account/register
+Content-Type: application/json
+
+{
+  "username": "test",
+  "email": "test@example.com",
+  "password": "test"
+}
+
+###
+
+POST http://localhost:8080/account/login
+Content-Type: application/json
+
+{
+  "username": "test",
+  "password": "test"
+}
+
+###
+
+DELETE http://localhost:8080/account/logout
+Content-Type: application/json
+Authorization: 2d6def33-709d-46a9-808f-c4b3300cc4f1
+
+{
+  "username": "test"
+}
