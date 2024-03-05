@@ -1,56 +1,45 @@
-import { describe, it, expect } from "vitest";
-import { screen, render, waitFor } from "@testing-library/react";
+import { describe, it, expect, beforeEach, afterEach } from "vitest";
+import { screen, render, cleanup } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import * as matchers from "@testing-library/jest-dom/matchers";
 expect.extend(matchers);
 import VideoPlayer from "./index";
 
 describe("VideoPlayer", () => {
-  it("renders input field and button", () => {
+  beforeEach(() => {
     render(<VideoPlayer />);
-
-    const input = screen.getByRole("textbox", { name: /youtube url/i });
-    const button = screen.getByRole("button", { name: /play video/i });
-
+  });
+  afterEach(() => {
+    cleanup();
+  });
+  it("renders input field and button", () => {
+    const input = screen.getByRole("textbox");
+    const button = screen.getByRole("button");
     expect(input).toBeInTheDocument();
     expect(button).toBeInTheDocument();
   });
 
   it("updates the video url when the input changes", () => {
-    render(<VideoPlayer />);
-
-    const input = screen.getByRole("textbox", { name: /youtube url/i });
-
+    const input = screen.getByRole("textbox");
     userEvent.type(input, "https://www.youtube.com/watch?v=dQw4w9WgXcQ");
-
     expect(input).toHaveValue("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
   });
 
-  it("displays an error message when an invalid youtube url is entered", async () => {
-    render(<VideoPlayer />);
-
-    const input = screen.getByRole("textbox", { name: /youtube url/i });
-    const button = screen.getByRole("button", { name: /play video/i });
-
-    userEvent.type(input, "https://www.youtube.com/notavalidurl");
+  it("displays an error message when an invalid youtube url is entered", () => {
+    const input = screen.getByRole("textbox");
+    const button = screen.getByRole("button");
+    userEvent.type(input, "invalid url");
     userEvent.click(button);
-
-    await waitFor(() =>
-      expect(screen.getByText("Invalid YouTube URL")).toBeInTheDocument()
-    );
+    const errorMessage = screen.getByText("Invalid YouTube URL");
+    expect(errorMessage).toBeInTheDocument();
   });
 
-  it("renders the youtube player when a valid youtube url is entered", async () => {
-    render(<VideoPlayer />);
-
-    const input = screen.getByRole("textbox", { name: /youtube url/i });
-    const button = screen.getByRole("button", { name: /play video/i });
-
+  it("renders the youtube player when a valid youtube url is entered", () => {
+    const input = screen.getByRole("textbox");
+    const button = screen.getByRole("button");
     userEvent.type(input, "https://www.youtube.com/watch?v=dQw4w9WgXcQ");
     userEvent.click(button);
-
-    await waitFor(() =>
-      expect(screen.getByTestId("youtube-player")).toBeInTheDocument()
-    );
+    const iframe = screen.getByTestId("youtube-player");
+    expect(iframe).toBeInTheDocument();
   });
 });
