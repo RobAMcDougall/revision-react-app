@@ -1,3 +1,4 @@
 .section1 {
-    display: flex
+    display: flex;
+    column-gap: 50px;
 }

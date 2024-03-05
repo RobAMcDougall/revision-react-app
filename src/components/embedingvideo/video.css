@@ -1,7 +1,5 @@
 .video {
-    background-color: #f5f5f5;
-    border: 1px solid #ccc;
-    border-radius: 8px;
+
     top: 60px;
     margin: 0 auto;
     width: 800px;
@@ -9,11 +7,19 @@
     position: relative;
     padding-top: 30px;
     padding-left: 70px;
+    padding-right: 90px;
 }
 
 .search-area {
     font-size: 30px;
-    margin: 20px
+    margin: 20px;
+    margin-right: 10px;
+}
+
+.form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 .search-bar {
@@ -23,7 +29,7 @@
     padding-right: 350px;
     padding-top: 10px;
     padding-bottom: 10px;
-    margin-bottom: 30px;
+
 }
 
 .button {

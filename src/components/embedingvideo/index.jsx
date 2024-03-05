@@ -32,7 +32,7 @@ const VideoPlayer = () => {
 
   return (
     <div className="video">
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="form">
         <label className="search-area">
           <input
             className="search-bar"
