@@ -1,14 +1,16 @@
+import {describe, it, expect, beforeEach, afterAll, vi} from "vitest";
+
 const db = require("../db/db");
 const session = require("./session");
 
 describe('model/session', () => {
-    beforeEach(jest.clearAllMocks);
-    afterAll(jest.resetAllMocks);
+    beforeEach(vi.clearAllMocks);
+    afterAll(vi.resetAllMocks);
 
     describe("createSession", () => {
         it("should create a user session on success", async () => {
             const testSession = {token: "00000000-0000-0000-0000-000000000000"};
-            jest.spyOn(db, "query").mockResolvedValueOnce({
+            vi.spyOn(db, "query").mockResolvedValueOnce({
                 rows: [testSession]
             });
 
@@ -20,14 +22,14 @@ describe('model/session', () => {
     describe("getSession", () => {
         it("should resolve with a required session on success", async () => {
             const testSession = {account: 0, token: "00000000-0000-0000-0000-000000000000"};
-            jest.spyOn(db,  "query").mockResolvedValueOnce({rows: [testSession]});
+            vi.spyOn(db,  "query").mockResolvedValueOnce({rows: [testSession]});
 
             const result = await session.getSession("00000000-0000-0000-0000-000000000000");
             expect(result.account).toBe(0);
         });
 
         it("should throw an error on db query error", async () => {
-            jest.spyOn(db,  "query").mockResolvedValueOnce(null);
+            vi.spyOn(db,  "query").mockResolvedValueOnce(null);
 
             try {
                 await session.getSession("00000000-0000-0000-0000-000000000000");
@@ -40,7 +42,7 @@ describe('model/session', () => {
     
     describe("destroySession", () => {
         it('should remove a user session on success', async () => {
-            jest.spyOn(db,  "query").mockResolvedValueOnce(null);
+            vi.spyOn(db,  "query").mockResolvedValueOnce(null);
             const result = await session.destroySession("00000000-0000-0000-0000-000000000000");
             expect(result).toBeDefined();
         });

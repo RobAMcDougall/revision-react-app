@@ -1,12 +1,9 @@
 {
   "scripts": {
     "dev": "nodemon -L index.js",
-    "setup-db": "node db/setup.js",
-    "test": "jest",
-    "coverage": "jest --coverage"
+    "setup-db": "node db/setup.js"
   },
   "devDependencies": {
-    "jest": "^29.7.0",
     "nodemon": "^3.1.0"
   },
   "dependencies": {
