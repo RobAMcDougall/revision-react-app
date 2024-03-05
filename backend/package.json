@@ -1,0 +1,22 @@
+{
+  "scripts": {
+    "dev": "nodemon -L index.js",
+    "setup-db": "node db/setup.js",
+    "test": "jest",
+    "coverage": "jest --coverage"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "nodemon": "^3.1.0"
+  },
+  "dependencies": {
+    "@koa/cors": "^5.0.0",
+    "@types/pg": "^8.11.2",
+    "dotenv": "^16.4.5",
+    "koa": "^2.15.0",
+    "koa-body": "^6.0.1",
+    "koa-morgan": "^1.0.1",
+    "pg": "^8.11.3",
+    "uuid": "^9.0.1"
+  }
+}
