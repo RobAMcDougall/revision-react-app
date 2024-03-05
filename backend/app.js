@@ -15,5 +15,4 @@ accounts.delete("/logout", controllers.account.logout);
 
 app.use(accounts.routes());
 
-const port = 8080;
-app.listen(port, () => console.log(`Server listening on port ${port}.`));
+module.exports = app;
