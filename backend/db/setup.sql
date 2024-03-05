@@ -28,3 +28,22 @@ CREATE TABLE video_note (
     text TEXT,
     video_timestamp INT
 );
+
+-- Clear any user named "registerTest" as this is only used for integration testing for the
+-- /account/register endpoint
+-- 
+-- in fact, this isn't used at all, since Supertest doesn't make any real requests to the DB :^)
+CREATE OR REPLACE FUNCTION delete_register_test_acc()
+RETURNS TRIGGER LANGUAGE plpgsql VOLATILE AS $$
+BEGIN
+    DELETE FROM account WHERE username = NEW.username;
+    RETURN NEW;
+END;
+$$;
+
+CREATE OR REPLACE TRIGGER delete_register_test_acc
+    AFTER INSERT
+    ON account
+    FOR EACH ROW
+    WHEN (NEW.username = 'registerTest')
+    EXECUTE PROCEDURE delete_register_test_acc();
