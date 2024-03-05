@@ -1,6 +1,6 @@
 import { useState } from "react";
 import YouTube from "react-youtube";
-
+import "./video.css";
 const VideoPlayer = () => {
   const [videoUrl, setVideoUrl] = useState("");
   const [videoId, setVideoId] = useState(null);
@@ -23,21 +23,27 @@ const VideoPlayer = () => {
   };
 
   const opts = {
-    height: "390",
-    width: "640",
+    height: "405",
+    width: "720",
     playerVars: {
       autoplay: 0,
     },
   };
 
   return (
-    <div>
+    <div className="video">
       <form onSubmit={handleSubmit}>
-        <label>
-          Enter YouTube URL:
-          <input type="text" value={videoUrl} onChange={handleInputChange} />
+        <label className="search-area">
+          <input
+            className="search-bar"
+            type="text"
+            value={videoUrl}
+            onChange={handleInputChange}
+          />
         </label>
-        <button type="submit">Play Video</button>
+        <button type="submit" className="button">
+          Play Video
+        </button>
       </form>
       {videoId && <YouTube videoId={videoId} opts={opts} />}
     </div>

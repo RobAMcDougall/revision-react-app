@@ -1,11 +1,9 @@
-import Notes from "../../components/Notes";
-import VideoPlayer from "../../components/embedingvideo";
+import VideoS1 from "../../layout/videonotes";
 
 function VideoTakingPage() {
   return (
     <>
-      <VideoPlayer />
-      <Notes />
+      <VideoS1 />
     </>
   );
 }
