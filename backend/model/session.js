@@ -15,12 +15,12 @@ async function getSession(token) {
     try {
         return response.rows[0];
     } catch {
-        throw new Error("Token could not be found.")
+        throw new Error("Token could not be found.");
     }
 }
 
 async function destroySession(token) {
-    await db.query("DELETE FROM auth_session WHERE token = $1;", [token]);
+    return await db.query("DELETE FROM auth_session WHERE token = $1;", [token]);
 }
 
 module.exports = {createSession, getSession, destroySession};
