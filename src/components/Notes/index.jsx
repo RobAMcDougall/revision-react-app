@@ -12,14 +12,16 @@ const Notes = ({ currentTimestamp, setCurrentTimestamp }) => {
   const formatTimestamp = (timestamp) => {
     // Convert seconds to minutes and seconds
     const minutes = Math.floor(timestamp / 60);
-    const seconds = timestamp % 60;
-
-    // Format the minutes and seconds
+    const seconds = Math.floor(timestamp % 60);
+  
+    // Format the minutes and seconds with leading zeros
     const formattedMinutes = String(minutes).padStart(2, "0");
-    const formattedSeconds = Math.floor(String(seconds).padStart(2, "0"));
-
+    const formattedSeconds = String(seconds).padStart(2, "0");
+  
     return `(${formattedMinutes}:${formattedSeconds})`;
   };
+  
+  
 
   const handleSave = () => {
     // Get the current value of the textarea
