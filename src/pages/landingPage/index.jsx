@@ -1,4 +1,3 @@
-
 import HeroSection from "../../layout/LandingPageHero";
 import ExplainSection from "../../layout/Landingpagemid";
 import End from "../../layout/landingpageend";

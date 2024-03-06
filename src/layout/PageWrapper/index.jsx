@@ -2,9 +2,9 @@ import { NavLink, Outlet } from "react-router-dom";
 import { useTheme } from "../../context/dark-theme context";
 
 function PageWrapper() {
-  const theme = useTheme();
+  const { toggleTheme } = useTheme();
   const handleClick = () => {
-    toggleTheme(theme);
+    toggleTheme();
   };
   return (
     <>

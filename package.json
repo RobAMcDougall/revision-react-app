@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@splinetool/react-spline": "^2.2.6",
+    "axios": "^1.6.7",
     "dotenv": "^16.4.5",
     "react": "^18.2.0",
     "react-calendar": "^4.8.0",
