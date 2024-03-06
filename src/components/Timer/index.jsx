@@ -20,7 +20,7 @@ const Timer = () => {
           }
           return prevSeconds - 1;
         });
-      }, 600);
+      }, 1000);
     }
 
     return () => clearInterval(intervalId);
