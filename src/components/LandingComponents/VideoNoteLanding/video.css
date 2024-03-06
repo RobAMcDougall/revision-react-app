@@ -1,0 +1,5 @@
+.wholeSection {
+    display: flex;
+    flex-direction: row;
+    column-gap: 90px;
+}
