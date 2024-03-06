@@ -6,10 +6,10 @@ const VideoPlayer = ({
   currentTimestamp,
   setCurrentTimestamp,
   videoUrl,
-  setVideoUrl,
+  setVideoUrl, playerRef
+
 }) => {
   const [videoId, setVideoId] = useState(null);
-  const playerRef = useRef(null);
 
   const handleInputChange = (event) => {
     setVideoUrl(event.target.value);
@@ -67,8 +67,8 @@ const VideoPlayer = ({
           <YouTube
             videoId={videoId}
             opts={opts}
+            onReady={(event) => (playerRef.current = event.target)}
             onStateChange={handlePlay}
-            ref={(youtubePlayer) => (playerRef.current = youtubePlayer)}
           />
         </>
       )}
