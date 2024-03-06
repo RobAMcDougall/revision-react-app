@@ -1,9 +1,10 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import "./Note.css";
 
 const Notes = ({ currentTimestamp, setCurrentTimestamp, playerRef }) => {
   const [note, setNote] = useState("");
   const textareaRef = useRef(null);
+  const [notes, setNotes] = useState([]);
 
   const handleSkipToTimestamp = (timestamp) => {
     setCurrentTimestamp(timestamp);
@@ -26,38 +27,46 @@ const Notes = ({ currentTimestamp, setCurrentTimestamp, playerRef }) => {
   };
 
   const handleSave = () => {
-    const currentValue = textareaRef.current.value;
-    setNote(currentValue);
-    textareaRef.current.value = currentValue;
-  };
+    if (note.trim() === "") {
+      return;
+    }
 
-  const handleAddTimestamp = () => {
     const formattedTimestamp = formatTimestamp(currentTimestamp);
-    setNote((prevNote) => `${prevNote} ${formattedTimestamp}`);
+    const newNote = {
+      text: note,
+      timestamp: currentTimestamp,
+      formattedTimestamp: formattedTimestamp,
+    };
+
+    setNotes((prevNotes) => [...prevNotes, newNote]);
+    setNote("");
+
+    setCurrentTimestamp((prevTimestamp) => prevTimestamp);
   };
 
-  const extractTimestamps = () => {
-    const timestampRegex = /\((\d{2}):(\d{2})\)/g;
-    const matches = note.match(timestampRegex);
-    return matches ? matches.map((match) => match.slice(1, -1)) : [];
+  const handleDeleteNote = (index) => {
+    setNotes((prevNotes) => {
+      const updatedNotes = [...prevNotes];
+      updatedNotes.splice(index, 1);
+      return updatedNotes;
+    });
   };
 
-  const renderTimestampButtons = () => {
-    const timestamps = extractTimestamps();
-    return timestamps.map((timestamp, index) => (
-      <button
-        key={index}
-        onClick={() => handleSkipToTimestamp(timestampToSeconds(timestamp))}
-        className="timestamp-button"
-      >
-        {timestamp}
-      </button>
+  const renderNotes = () => {
+    return notes.map((note, index) => (
+      <div key={index} className="note">
+        <p>{note.text}</p>
+        <button
+          onClick={() => handleSkipToTimestamp(note.timestamp)}
+          className="timestamp-button"
+        >
+          {note.formattedTimestamp}
+        </button>
+        <button onClick={() => handleDeleteNote(index)} className="delete-button">
+          Delete
+        </button>
+      </div>
     ));
-  };
-
-  const timestampToSeconds = (timestamp) => {
-    const [minutes, seconds] = timestamp.split(":");
-    return parseInt(minutes, 10) * 60 + parseInt(seconds, 10);
   };
 
   return (
@@ -71,15 +80,10 @@ const Notes = ({ currentTimestamp, setCurrentTimestamp, playerRef }) => {
         rows={5}
         cols={50}
       />
-      <div>
-        <button className="timestamp-button" onClick={handleAddTimestamp}>
-          Add Timestamp
-        </button>
-        <button className="save-button" onClick={handleSave}>
-          Save
-        </button>
-        {renderTimestampButtons()}
-      </div>
+      <button className="save-button" onClick={handleSave}>
+        Save
+      </button>
+      {renderNotes()}
     </div>
   );
 };

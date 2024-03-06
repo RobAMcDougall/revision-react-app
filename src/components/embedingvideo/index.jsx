@@ -23,8 +23,7 @@ const VideoPlayer = ({
     );
     if (videoIdMatch && videoIdMatch.length > 1) {
       setVideoId(videoIdMatch[1]);
-      setCurrentTimestamp(0); // Reset timestamp when a new video is loaded
-    } else {
+      setCurrentTimestamp(0); 
       alert("Invalid YouTube URL");
     }
   };
@@ -32,7 +31,7 @@ const VideoPlayer = ({
   const handlePlay = (event) => {
     const { data } = event;
     if (data === YouTube.PlayerState.PAUSED) {
-      const currentTimestamp = event.target.getCurrentTime(); // Use event.target
+      const currentTimestamp = event.target.getCurrentTime(); 
       setCurrentTimestamp(currentTimestamp);
     }
   };
