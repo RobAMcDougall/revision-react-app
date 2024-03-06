@@ -26,8 +26,8 @@ CREATE TABLE video_card (
 CREATE TABLE video_note (
     id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
     video INT REFERENCES video_card,
-    text TEXT,
-    video_timestamp INT
+    text TEXT NOT NULL,
+    timestamp INT
 );
 
 CREATE TABLE sticky_note (
@@ -46,8 +46,6 @@ SET GENERATED ALWAYS;
 
 -- Clear any user named "registerTest" as this is only used for integration testing for the
 -- /account/register endpoint
--- 
--- in fact, this isn't used at all, since Supertest doesn't make any real requests to the DB :^)
 CREATE OR REPLACE FUNCTION delete_register_test_acc()
 RETURNS TRIGGER LANGUAGE plpgsql VOLATILE AS $$
 BEGIN
