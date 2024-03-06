@@ -118,3 +118,31 @@ describe("logout", () => {
         expect(ctx.status).toBe(400);
     });
 });
+
+describe("protect", () => {
+    let ctx;
+
+    beforeEach(() => {
+        vi.clearAllMocks();
+        ctx = createMockContext({headers: {"Authorization": "00000000-0000-0000-0000-000000000000"}});
+    });
+
+    afterAll(() => {
+        vi.resetAllMocks();
+    });
+
+    it("should allow access if logged in with a valid session token", async () => {
+        vi.spyOn(Session, "getSession").mockResolvedValue(null);
+        await accounts.protect(ctx, async () => ctx.body = "Approved");
+        expect(Session.getSession).toHaveBeenCalledTimes(1);
+        expect(ctx.status).toBe(200);
+        expect(ctx.body).toBe("Approved");
+    });
+
+    it("should deny access for any invalid session token", async () => {
+        vi.spyOn(Session, "getSession").mockRejectedValue(new Error("Denied"));
+        await accounts.protect(ctx, async () => ctx.body = "Approved");
+        expect(ctx.status).toBe(403);
+        expect(ctx.body).toStrictEqual({error: "Denied"});
+    });
+});

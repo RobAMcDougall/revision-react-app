@@ -1,6 +1,6 @@
+const bcrypt = require("bcryptjs");
 const Account = require("../model/account");
 const Session = require("../model/session");
-const bcrypt = require("bcryptjs");
 
 async function register(ctx){
     try {
@@ -41,4 +41,14 @@ async function logout(ctx) {
     }
 }
 
-module.exports = {register, login, logout};
+async function protect(ctx, next) {
+    try {
+        await Session.getSession(ctx.request.get("Authorization"));
+        await next();
+    } catch (err) {
+        ctx.status = 403;
+        ctx.body = {error: err.message};
+    }
+}
+
+module.exports = {register, login, logout, protect};
