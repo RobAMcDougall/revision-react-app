@@ -19,6 +19,17 @@ describe("createSession", () => {
         const result = await session.createSession(0);
         expect(result.token).toBe("00000000-0000-0000-0000-000000000000");
     });
+
+    it("should throw an error on db query error", async () => {
+        vi.spyOn(db,  "query").mockRejectedValue(new Error("Something went wrong"));
+
+        try {
+            await session.createSession(0);
+        } catch (err) {
+            expect(err).toBeDefined();
+            expect(err.message).toBe("Something went wrong");
+        }
+    });
 });
 
 describe("getSession", () => {
@@ -30,7 +41,7 @@ describe("getSession", () => {
         expect(result.account).toBe(0);
     });
 
-    it("should throw an error on db query error", async () => {
+    it("should throw an error on non-existent session tokens", async () => {
         vi.spyOn(db, "query").mockResolvedValueOnce(null);
 
         try {
@@ -44,8 +55,23 @@ describe("getSession", () => {
 
 describe("destroySession", () => {
     it('should remove a user session on success', async () => {
-        vi.spyOn(db, "query").mockResolvedValueOnce(null);
+        const testToken = {
+            account: 0,
+            token: "00000000-0000-0000-0000-000000000000"
+        };
+        vi.spyOn(db, "query").mockResolvedValueOnce({rows: [testToken]});
         const result = await session.destroySession("00000000-0000-0000-0000-000000000000");
         expect(result).toBeDefined();
+    });
+
+    it("should throw an error on non-existent session tokens", async () => {
+        vi.spyOn(db, "query").mockResolvedValueOnce(null);
+
+        try {
+            await session.destroySession("00000000-0000-0000-0000-000000000000");
+        } catch (err) {
+            expect(err).toBeDefined();
+            expect(err.message).toBe("Token could not be found.");
+        }
     });
 });

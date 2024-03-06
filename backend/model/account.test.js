@@ -2,11 +2,11 @@ const db = require("../db/db");
 const account = require("./account");
 
 beforeEach(() => {
-    vi.clearAllMocks()
+    vi.clearAllMocks();
 });
 
 afterAll(() => {
-    vi.resetAllMocks()
+    vi.resetAllMocks();
 });
 
 describe("createAccount", () => {
@@ -23,6 +23,17 @@ describe("createAccount", () => {
         expect(result.username).toBe("test");
         expect(result.email).toBe("test@test.com");
     });
+
+    it("should throw an error on db query error", async () => {
+        vi.spyOn(db,  "query").mockRejectedValue(new Error("Something went wrong"));
+        
+        try {
+            await account.createAccount({});
+        } catch (err) {
+            expect(err).toBeDefined();
+            expect(err.message).toBe("Something went wrong");
+        }
+    });
 });
 
 describe("getAccount", () => {
@@ -35,7 +46,7 @@ describe("getAccount", () => {
         expect(result.id).toBe(1);
     });
 
-    it("should throw an error on db query error", async () => {
+    it("should throw an error on non-existent accounts", async () => {
         vi.spyOn(db, "query").mockResolvedValueOnce(null);
 
         try {
