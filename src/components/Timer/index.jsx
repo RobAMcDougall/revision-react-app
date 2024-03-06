@@ -1,56 +1,64 @@
 import { useState, useEffect } from "react";
 import "./index.css";
+import timerSound from "../../../public/beep-sound-8333.mp3"; // Import your sound file
 
-export default function Timer() {
-  const [time, setTime] = useState(1500);
+const Timer = () => {
+  const workDuration = 1500;
+  const breakDuration = 300;
+  const [seconds, setSeconds] = useState(workDuration);
   const [isActive, setIsActive] = useState(false);
 
-  const formatTime = (seconds) => {
-    const minutes = Math.floor(seconds / 60);
-    const remainingSeconds = seconds % 60;
-    return `${String(minutes).padStart(2, "0")}:${String(
-      remainingSeconds
-    ).padStart(2, "0")}`;
-  };
-
   useEffect(() => {
-    let timer;
+    let intervalId;
 
-    if (isActive && time > 0) {
-      timer = setInterval(() => {
-        setTime((prevTime) => prevTime - 1);
-      }, 1000);
-    } else if (time === 0) {
-      setIsActive(false);
+    if (isActive) {
+      intervalId = setInterval(() => {
+        setSeconds((prevSeconds) => {
+          if (prevSeconds === 0) {
+            new Audio(timerSound).play();
+            return prevSeconds;
+          }
+          return prevSeconds - 1;
+        });
+      }, 600);
     }
 
-    return () => clearInterval(timer);
-  }, [isActive, time]);
+    return () => clearInterval(intervalId);
+  }, [isActive]);
 
-  const handleStartStop = () => {
-    setIsActive((prev) => !prev);
-  };
-
-  const handleReset = () => {
+  const resetTimer = () => {
+    setSeconds(workDuration);
     setIsActive(false);
-    setTime(1500); // Reset to 25 minutes
   };
+  const addBreak = () => {
+    setSeconds(0);
+    setTimeout(() => {
+      setSeconds((prevSeconds) => prevSeconds + breakDuration);
+    }, 1000);
+  };
+
+  const minutes = Math.floor(seconds / 60);
+  const remainingSeconds = seconds % 60;
 
   return (
-    <div className="timer-tile">
-      <div className="timer-tile-white">
-        <div className="timer-container">
-          <div className="donut-display">
-            <p className="timer-text">{formatTime(time)}</p>
-          </div>
-          <div className="button-container">
-            <button onClick={handleStartStop}>
-              {isActive ? "Stop" : "Start"}
-            </button>
-            <button onClick={handleReset}>Reset</button>
-          </div>
-        </div>
+    <div className="timer">
+      <div className="timer-display">
+        {minutes}:{remainingSeconds < 10 ? "0" : ""}
+        {remainingSeconds}
+      </div>
+      <div className="timer-buttons">
+        <button className="timer-button" onClick={() => setIsActive(!isActive)}>
+          {isActive ? "Pause" : "Start"}
+        </button>
+        <button className="timer-button" onClick={resetTimer}>
+          Pomodoro
+        </button>
+        <button className="timer-button" onClick={addBreak}>
+          Add 5 Min Break
+        </button>
       </div>
     </div>
   );
-}
+};
+
+export default Timer;
