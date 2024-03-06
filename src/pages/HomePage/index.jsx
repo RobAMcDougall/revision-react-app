@@ -1,4 +1,10 @@
-import {StickyNotes, Quotes, Timer, Todos, FullCalendar } from "../../components";
+import {
+  StickyNotes,
+  Quotes,
+  Timer,
+  Todos,
+  FullCalendar,
+} from "../../components";
 import "../../App.css";
 function HomePage() {
   return (

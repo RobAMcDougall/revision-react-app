@@ -1,0 +1,12 @@
+.hero-content {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.hero .hero-content>.row {
+    width: 100%;
+}

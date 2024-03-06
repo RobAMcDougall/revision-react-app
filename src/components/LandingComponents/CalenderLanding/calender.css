@@ -1,0 +1,11 @@
+.wholeSection {
+    display: flex;
+    flex-direction: row;
+    column-gap: 90px;
+}
+
+img {
+    border-radius: 70px;
+    border: 1px solid black;
+
+}
