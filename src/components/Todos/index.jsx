@@ -6,13 +6,11 @@ export default function Todos() {
   const [inputValue, setInputValue] = useState("");
 
   useEffect(() => {
-    // Retrieve todos from local storage when the component mounts
     const storedTodos = JSON.parse(localStorage.getItem('todos')) || [];
     setTodos(storedTodos);
   }, []);
 
   useEffect(() => {
-    // Save todos to local storage whenever the todos state changes
     localStorage.setItem('todos', JSON.stringify(todos));
   }, [todos]);
 

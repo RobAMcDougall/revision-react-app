@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import './index.css'
 
 export default function Timer() {
-  const [time, setTime] = useState(1500); // 25 minutes in seconds
+  const [time, setTime] = useState(1500);
   const [isActive, setIsActive] = useState(false);
 
   const formatTime = (seconds) => {
@@ -21,7 +21,6 @@ export default function Timer() {
         setTime((prevTime) => prevTime - 1);
       }, 1000);
     } else if (time === 0) {
-      // Timer completed, you can add your logic here
       setIsActive(false);
     }
 
@@ -41,12 +40,9 @@ export default function Timer() {
     <div className="timer-tile">
       <div className="timer-tile-white">
         <div className="timer-container">
-          {/* Your donut-shaped display */}
           <div className="donut-display">
             <p className="timer-text">{formatTime(time)}</p>
           </div>
-
-          {/* Buttons */}
           <div className="button-container">
             <button onClick={handleStartStop}>
               {isActive ? "Stop" : "Start"}

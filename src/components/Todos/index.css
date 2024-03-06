@@ -1,17 +1,17 @@
 .todo-tile {
     display: flex;
-    width: 43vw; /* 50% of viewport width */
-    height: 45vw; /* Set the height to be the same as the width */
-    background-color: #d0f4de; /* Choose your desired background color */
+    width: 43vw;
+    height: 45vw;
+    background-color: #d0f4de; 
     border-radius: 50px;
     align-items: center;
     justify-content: center;
   }
   
   .todo-tile-white {
-    width: 90%; /* 50% of viewport width */
-    height: 90%; /* Set the height to be the same as the width */
-    background-color: white; /* Choose your desired background color */
+    width: 90%; 
+    height: 90%; 
+    background-color: white; 
     border-radius: 50px;
   }
   

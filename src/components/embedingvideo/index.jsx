@@ -1,9 +1,15 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import YouTube from "react-youtube";
 import "./video.css";
-const VideoPlayer = () => {
-  const [videoUrl, setVideoUrl] = useState("");
+
+const VideoPlayer = ({
+  currentTimestamp,
+  setCurrentTimestamp,
+  videoUrl,
+  setVideoUrl,
+}) => {
   const [videoId, setVideoId] = useState(null);
+  const playerRef = useRef(null);
 
   const handleInputChange = (event) => {
     setVideoUrl(event.target.value);
@@ -17,8 +23,17 @@ const VideoPlayer = () => {
     );
     if (videoIdMatch && videoIdMatch.length > 1) {
       setVideoId(videoIdMatch[1]);
+      setCurrentTimestamp(0); // Reset timestamp when a new video is loaded
     } else {
       alert("Invalid YouTube URL");
+    }
+  };
+
+  const handlePlay = (event) => {
+    const { data } = event;
+    if (data === YouTube.PlayerState.PAUSED) {
+      const currentTimestamp = event.target.getCurrentTime(); // Use event.target
+      setCurrentTimestamp(currentTimestamp);
     }
   };
 
@@ -47,7 +62,16 @@ const VideoPlayer = () => {
           Play Video
         </button>
       </form>
-      {videoId && <YouTube videoId={videoId} opts={opts} />}
+      {videoId && (
+        <>
+          <YouTube
+            videoId={videoId}
+            opts={opts}
+            onStateChange={handlePlay}
+            ref={(youtubePlayer) => (playerRef.current = youtubePlayer)}
+          />
+        </>
+      )}
     </div>
   );
 };
