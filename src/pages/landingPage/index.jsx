@@ -1,8 +1,14 @@
-import PageWrapper from "../../layout/PageWrapper";
+
+import HeroSection from "../../layout/LandingPageHero";
+import ExplainSection from "../../layout/Landingpagemid";
+import End from "../../layout/landingpageend";
+
 function LandingPage() {
   return (
     <>
-      <PageWrapper />
+      <HeroSection />
+      <ExplainSection />
+      <End />
     </>
   );
 }
