@@ -1,3 +1,4 @@
+// @vitest-environment node
 const db = require("./db");
 const fs = require("fs");
 

@@ -1,3 +1,4 @@
+// @vitest-environment node
 const db = require("../db/db");
 const videoNote = require("./videoNote");
 

@@ -1,3 +1,4 @@
+// @vitest-environment node
 import request from "supertest";
 const app = require("./app");
 

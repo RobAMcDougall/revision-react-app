@@ -1,3 +1,4 @@
+// @vitest-environment node
 import {createMockContext} from "@story-health/vitest-koa-mocks";
 import {afterAll} from "vitest";
 
