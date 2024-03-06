@@ -77,3 +77,28 @@
     -webkit-background-size: 100% 50px;
     background-size: 100% 50px;
 }
+
+
+/* .timestamp-display {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 12px;
+    color: #333;
+  }
+  
+  .note-preview {
+    margin-top: 20px; 
+  }
+  
+  .note-preview span {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .note-preview span sup {
+    position: absolute;
+    top: -16px; 
+    font-size: 10px;
+    color: #888; 
+  } */
