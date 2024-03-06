@@ -1,18 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import "../../App.css";
+import "./index.css";
 
 export default function Todos() {
   const [todos, setTodos] = useState([]);
   const [inputValue, setInputValue] = useState("");
 
   useEffect(() => {
-    // Retrieve todos from local storage when the component mounts
     const storedTodos = JSON.parse(localStorage.getItem('todos')) || [];
     setTodos(storedTodos);
   }, []);
 
   useEffect(() => {
-    // Save todos to local storage whenever the todos state changes
     localStorage.setItem('todos', JSON.stringify(todos));
   }, [todos]);
 
