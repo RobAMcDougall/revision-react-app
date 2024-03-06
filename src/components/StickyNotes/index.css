@@ -1,0 +1,19 @@
+.stickyNotes-tile {
+    display: flex;
+  
+    width: 43vw;
+    height: 45vw;
+    background-color: #fcf6bd;
+    border-radius: 50px;
+    margin: 10px;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .stickyNotes-tile-white {
+    width: 90%;
+    height: 90%;
+    background-color: white;
+    border-radius: 50px;
+    margin: 10px;
+  }

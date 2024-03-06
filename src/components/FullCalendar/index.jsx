@@ -1,6 +1,6 @@
 import React from "react";
 import Calendar from "react-calendar";
-import "../../App.css";
+import "./index.css";
 import { useState } from "react";
 
 export default function FullCalendar() {
