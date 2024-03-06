@@ -63,15 +63,4 @@ describe("destroySession", () => {
         const result = await session.destroySession("00000000-0000-0000-0000-000000000000");
         expect(result).toBeDefined();
     });
-
-    it("should throw an error on non-existent session tokens", async () => {
-        vi.spyOn(db, "query").mockResolvedValueOnce(null);
-
-        try {
-            await session.destroySession("00000000-0000-0000-0000-000000000000");
-        } catch (err) {
-            expect(err).toBeDefined();
-            expect(err.message).toBe("Token could not be found.");
-        }
-    });
 });

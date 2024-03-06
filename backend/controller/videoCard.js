@@ -14,6 +14,7 @@ async function createVideoCard(ctx) {
 async function retrieveVideoCard(ctx) {
     try {
         ctx.body = await VideoCard.getVideoCard(ctx.params.id);
+        ctx.status = 200;
     } catch {
         ctx.status = 404;
     }
@@ -21,15 +22,23 @@ async function retrieveVideoCard(ctx) {
 
 async function updateResumeTimestamp(ctx) {
     try {
-        ctx.body = await VideoCard.updateResumeTimestamp(ctx.params.id, parseInt(ctx.body));
+        if (isNaN(ctx.request.body)) {
+            ctx.status = 400;
+            ctx.body = {error: "Invalid timestamp provided. Must be given as a number of seconds."}
+            return;
+        } 
+        
+        ctx.body = await VideoCard.updateResumeTimestamp(ctx.params.id, ctx.request.body);
+        ctx.status = 200;
     } catch {
-        ctx.status = isNaN(ctx.body) ? 400 : 404;
+        ctx.status = 404;
     }
 }
 
 async function deleteVideoCard(ctx) {
     try {
         ctx.body = await VideoCard.deleteVideoCard(ctx.params.id);
+        ctx.status = 200;
     } catch {
         ctx.status = 404;
     }

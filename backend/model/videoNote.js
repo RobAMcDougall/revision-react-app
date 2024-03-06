@@ -34,7 +34,7 @@ async function deleteVideoNote(id){
 
 async function updateNoteText(id, text) {
     const response = await db.query(
-        "UPDATE video_note SET text = $2 WHERE id = 1 RETURNING *;",
+        "UPDATE video_note SET text = $2 WHERE id = $1 RETURNING *;",
         [id, text]
     );
 

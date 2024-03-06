@@ -31,7 +31,7 @@ async function deleteVideoCard(id){
 
 async function updateResumeTimestamp(id, timestamp) {
     const response = await db.query(
-        "UPDATE video_card SET resume_timestamp = $2 WHERE id = 1 RETURNING *;",
+        "UPDATE video_card SET resume_timestamp = $2 WHERE id = $1 RETURNING *;",
         [id, timestamp]
     );
     
