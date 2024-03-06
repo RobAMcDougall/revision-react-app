@@ -1,69 +1,71 @@
-import { useState } from "react";
+import emailjs from "emailjs-com";
+import { Form, Input, TextArea, Button } from "semantic-ui-react";
+import Swal from "sweetalert2";
 import "./contact.css";
 
+const SERVICE_ID = "service_8ja3mj8";
+const TEMPLATE_ID = "template_jatwvwh";
+const USER_ID = "9TE_-xkDj8Jb4EPPO";
+
 const ContactForm = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-  };
-
-  const handleSubmit = (e) => {
+  const handleOnSubmit = (e) => {
     e.preventDefault();
-
-    console.log(formData);
-
-    setFormData({
-      name: "",
-      email: "",
-      message: "",
-    });
+    emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, e.target, USER_ID).then(
+      (result) => {
+        console.log(result.text);
+        Swal.fire({
+          icon: "success",
+          title: "Message Sent Successfully",
+        });
+      },
+      (error) => {
+        console.log(error.text);
+        Swal.fire({
+          icon: "error",
+          title: "Ooops, something went wrong",
+          text: error.text,
+        });
+      }
+    );
+    e.target.reset();
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="name">Name:</label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
+    <div className="contactform">
+      <Form onSubmit={handleOnSubmit}>
+        <Form.Field
+          id="form-input-control-email"
+          control={Input}
+          label="Email"
+          name="user_email"
+          placeholder="Email…"
+          required
+          icon="mail"
+          iconPosition="left"
+        />
+        <Form.Field
+          id="form-input-control-last-name"
+          control={Input}
+          label="Name"
+          name="user_name"
+          placeholder="Name…"
+          required
+          icon="user circle"
+          iconPosition="left"
+        />
+        <Form.Field
+          id="form-textarea-control-opinion"
+          control={TextArea}
+          label="Message"
+          name="user_message"
+          placeholder="Message…"
           required
         />
-      </div>
-      <div>
-        <label htmlFor="email">Email:</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-          required
-        />
-      </div>
-      <div>
-        <label htmlFor="message">Message:</label>
-        <textarea
-          id="message"
-          name="message"
-          value={formData.message}
-          onChange={handleChange}
-          required
-        ></textarea>
-      </div>
-      <button type="submit">Submit</button>
-    </form>
+        <Button type="submit" color="green">
+          Submit
+        </Button>
+      </Form>
+    </div>
   );
 };
 

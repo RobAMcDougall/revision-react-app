@@ -18,13 +18,23 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  const register = async (userData) => {
+    try {
+      const response = await axios.post("/api/register", userData);
+      setUser(response.data.user);
+      localStorage.setItem("token", response.data.token);
+    } catch (error) {
+      console.error("Registration failed", error);
+    }
+  };
+
   const logout = () => {
     setUser(null);
     localStorage.removeItem("token");
   };
 
   return (
-    <AuthContext.Provider value={{ user, login, logout, setUser }}>
+    <AuthContext.Provider value={{ user, login, register, logout, setUser }}>
       {children}
     </AuthContext.Provider>
   );

@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import './index.css'
+import { useState, useEffect } from "react";
+import "./index.css";
 
 export default function Timer() {
   const [time, setTime] = useState(1500);
