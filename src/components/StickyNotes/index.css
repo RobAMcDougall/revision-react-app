@@ -17,3 +17,49 @@
     border-radius: 50px;
     margin: 10px;
   }
+
+  .sticky-notes-board {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+  }
+  
+  input {
+    padding: 8px;
+    margin-right: 5px;
+  }
+  
+  button {
+    padding: 8px;
+    cursor: pointer;
+  }
+  
+  .notes-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .sticky-note {
+    width: 150px;
+    height: 150px;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    position: relative;
+  }
+  
+  .sticky-note p {
+    margin: 0;
+  }
+  
+  .sticky-note button {
+    width: 35px;
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
