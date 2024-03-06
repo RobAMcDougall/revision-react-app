@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import "./index.css";
-import timerSound from "../../../public/beep-sound-8333.mp3"; // Import your sound file
+import timerSound from "../../../public/075176_duck-quack-40345.mp3"; // Import your sound file
 
 const Timer = () => {
   const workDuration = 1500;
