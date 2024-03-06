@@ -1,5 +1,10 @@
+import PageWrapper from "../../layout/PageWrapper";
 function LandingPage() {
-  return <div>LandingPage</div>;
+  return (
+    <>
+      <PageWrapper />
+    </>
+  );
 }
 
 export default LandingPage;
