@@ -13,27 +13,27 @@ CREATE TABLE account (
 
 CREATE TABLE auth_session (
     token CHAR(36) PRIMARY KEY UNIQUE NOT NULL,
-    account INT REFERENCES account
+    account INT NOT NULL REFERENCES account
 );
 
 CREATE TABLE video_card (
     id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-    account INT REFERENCES account,
+    account INT NOT NULL REFERENCES account,
     video_id CHAR(11) NOT NULL,
     resume_timestamp INT
 );
 
 CREATE TABLE video_note (
     id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-    video INT REFERENCES video_card,
+    video INT NOT NULL REFERENCES video_card,
     text TEXT NOT NULL,
     timestamp INT
 );
 
 CREATE TABLE sticky_note (
     id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-    account INT REFERENCES account,
-    text TEXT
+    account INT NOT NULL REFERENCES account,
+    text TEXT NOT NULL
 );
 
 INSERT INTO account VALUES (

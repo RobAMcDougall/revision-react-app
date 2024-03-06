@@ -26,6 +26,6 @@ videoNotes.post("/", controllers.video.note.createVideoNote);
 videoNotes.get("/:id", controllers.video.note.retrieveVideoNote);
 videoNotes.patch("/:id", controllers.video.note.updateNoteText);
 videoNotes.delete("/:id", controllers.video.note.deleteVideoNote);
-app.use(videoCards.routes()).use(videoCards.allowedMethods());
+app.use(videoNotes.routes()).use(videoNotes.allowedMethods());
 
 module.exports = app;
