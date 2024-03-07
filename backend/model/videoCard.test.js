@@ -41,20 +41,10 @@ describe("getVideoCard", () => {
         const testCard = {id: 1, account: 1, video_id: "LYdGfjtdtI4"};
         vi.spyOn(db, "query").mockResolvedValueOnce({rows: [testCard]});
 
-        const result = await videoCard.getVideoCard(1);
-        expect(result.account).toBe(1);
-        expect(result.video_id).toBe("LYdGfjtdtI4");
-    });
-
-    it("should throw an error on non-existent video cards", async () => {
-        vi.spyOn(db, "query").mockResolvedValueOnce(null);
-
-        try {
-            await videoCard.getVideoCard(1);
-        } catch (err) {
-            expect(err).toBeDefined();
-            expect(err.message).toBe("Video card could not be found.");
-        }
+        const result = await videoCard.getVideoCards(1);
+        expect(result).toHaveLength(1);
+        expect(result[0].account).toBe(1);
+        expect(result[0].video_id).toBe("LYdGfjtdtI4");
     });
 });
 

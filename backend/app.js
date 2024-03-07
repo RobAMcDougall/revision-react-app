@@ -16,14 +16,14 @@ app.use(accounts.routes()).use(accounts.allowedMethods());
 
 const videoCards = new Router({prefix: "/video/card"}).use(controllers.account.protect);
 videoCards.post("/", controllers.video.card.createVideoCard);
-videoCards.get("/:id", controllers.video.card.retrieveVideoCard);
+videoCards.get("/:account", controllers.video.card.retrieveVideoCards);
 videoCards.patch("/:id", controllers.video.card.updateResumeTimestamp);
 videoCards.delete("/:id", controllers.video.card.deleteVideoCard);
 app.use(videoCards.routes()).use(videoCards.allowedMethods());
 
 const videoNotes = new Router({prefix: "/video/note"}).use(controllers.account.protect);
 videoNotes.post("/", controllers.video.note.createVideoNote);
-videoNotes.get("/:id", controllers.video.note.retrieveVideoNote);
+videoNotes.get("/:card", controllers.video.note.retrieveVideoNotes);
 videoNotes.patch("/:id", controllers.video.note.updateNoteText);
 videoNotes.delete("/:id", controllers.video.note.deleteVideoNote);
 app.use(videoNotes.routes()).use(videoNotes.allowedMethods());

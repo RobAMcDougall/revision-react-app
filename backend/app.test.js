@@ -102,7 +102,10 @@ describe("routes/video", () => {
             it("should return status 200 upon successful video card retrieval", async () => {
                 await request(app.callback())
                     .get("/video/card/0")
-                    .expect(200);
+                    .expect(200)
+                    .then(response => {
+                        expect(response.body).toHaveLength(1);
+                    });
             });
 
             it("should return status 404 for non-existent video cards", async () => {
@@ -187,8 +190,11 @@ describe("routes/video", () => {
         describe("retrieve", () => {
             it("should return status 200 for successful video note retrieval", async () => {
                 await request(app.callback())
-                    .get("/video/note/" + id)
-                    .expect(200);
+                    .get("/video/note/0")
+                    .expect(200)
+                    .then(response => {
+                        expect(response.body).toHaveLength(1);
+                    });
             });
 
             it("should return status 404 for non-existent video notes", async () => {
