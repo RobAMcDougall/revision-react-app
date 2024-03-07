@@ -1,9 +1,9 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import YouTube from "react-youtube";
 import "./video.css";
 
 const VideoPlayer = ({
-  currentTimestamp,
+  
   setCurrentTimestamp,
   videoUrl,
   setVideoUrl, playerRef
@@ -12,7 +12,7 @@ const VideoPlayer = ({
   const [videoId, setVideoId] = useState(null);
 
   const handleInputChange = (event) => {
-    setVideoUrl(event.target.value);
+    setVideoUrl(event.target.value)
   };
 
   const handleSubmit = (event) => {

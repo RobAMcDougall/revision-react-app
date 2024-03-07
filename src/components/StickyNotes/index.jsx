@@ -44,6 +44,7 @@ export default function StickyNotes() {
                 key={note.id}
                 className="sticky-note"
                 style={{ background: note.color }}
+                data-testid="sticky-note"  // Add data-testid here
               >
                 <p>{note.text}</p>
                 <button onClick={() => removeNote(note.id)}>X</button>
