@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+// eslint-disable-next-line no-unused-vars
 import { useState, useRef } from "react";
 import YouTube from "react-youtube";
 import "./video.css";
@@ -6,8 +8,8 @@ const VideoPlayer = ({
   currentTimestamp,
   setCurrentTimestamp,
   videoUrl,
-  setVideoUrl, playerRef
-
+  setVideoUrl,
+  playerRef,
 }) => {
   const [videoId, setVideoId] = useState(null);
 
@@ -23,15 +25,14 @@ const VideoPlayer = ({
     );
     if (videoIdMatch && videoIdMatch.length > 1) {
       setVideoId(videoIdMatch[1]);
-      setCurrentTimestamp(0); 
-      alert("Invalid YouTube URL");
+      setCurrentTimestamp(0);
     }
   };
 
   const handlePlay = (event) => {
     const { data } = event;
     if (data === YouTube.PlayerState.PAUSED) {
-      const currentTimestamp = event.target.getCurrentTime(); 
+      const currentTimestamp = event.target.getCurrentTime();
       setCurrentTimestamp(currentTimestamp);
     }
   };

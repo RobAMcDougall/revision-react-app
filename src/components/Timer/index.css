@@ -1,52 +1,24 @@
-.timer-tile {
-    display: flex;
-    width: 43vw;
-    height: 45vw;
-    background-color: #ff99c8;
-    border-radius: 50px;
-    margin: 10px;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .timer-tile-white {
-    width: 90%;
-    height: 90%;
-    background-color: white;
-    border-radius: 50px;
-    margin: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .timer-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .donut-display {
-    /* Style your donut display as needed */
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    background-color: lightgray;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .timer-text {
-    font-size: 24px;
-  }
-  
-  .button-container {
-    margin-top: 20px;
-  }
-  
-  button {
-    margin: 0 10px;
-    padding: 10px;
-    font-size: 16px;
-  }
+.timer {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  border: 10px solid #e4c1f988;
+  border-radius: 20px;
+  padding: 30px;
+  background-color: #e4c1f996;
+
+}
+
+.timer-buttons {
+  display: flex;
+  flex-direction: row;
+  column-gap: 10px;
+}
+
+.timer-display {
+  font-size: 40px;
+  margin-bottom: 30px;
+}
