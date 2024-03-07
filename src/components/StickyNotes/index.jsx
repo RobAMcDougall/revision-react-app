@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./index.css";
 
 export default function StickyNotes() {
@@ -14,6 +14,17 @@ export default function StickyNotes() {
       setInputValue("");
     }
   };
+
+  useEffect(() => {
+    if (notes.length > 0) {
+      localStorage.setItem("notes", JSON.stringify(notes));
+    }
+  }, [notes]);
+
+  useEffect(() => {
+    const storedNotes = JSON.parse(localStorage.getItem("notes")) || [];
+    setNotes(storedNotes);
+  }, []);
 
   const removeNote = (id) => {
     setNotes((prevNotes) => prevNotes.filter((note) => note.id !== id));

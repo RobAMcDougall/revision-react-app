@@ -6,13 +6,15 @@ export default function Todos() {
   const [inputValue, setInputValue] = useState("");
 
   useEffect(() => {
+    if(todos.length > 0){
+      localStorage.setItem('todos', JSON.stringify(todos));
+    }
+  }, [todos]);
+
+  useEffect(() => {
     const storedTodos = JSON.parse(localStorage.getItem('todos')) || [];
     setTodos(storedTodos);
   }, []);
-
-  useEffect(() => {
-    localStorage.setItem('todos', JSON.stringify(todos));
-  }, [todos]);
 
   const addTodo = () => {
     if (inputValue.trim() !== "") {

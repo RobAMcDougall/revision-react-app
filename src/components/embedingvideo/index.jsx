@@ -1,11 +1,8 @@
-/* eslint-disable no-unused-vars */
-// eslint-disable-next-line no-unused-vars
-import { useState, useRef } from "react";
+import { useState } from "react";
 import YouTube from "react-youtube";
 import "./video.css";
 
 const VideoPlayer = ({
-  currentTimestamp,
   setCurrentTimestamp,
   videoUrl,
   setVideoUrl,
