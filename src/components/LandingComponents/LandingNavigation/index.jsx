@@ -10,7 +10,7 @@ class Navigation extends React.Component {
 
   render() {
     return (
-      <div className="navigation">
+      <div className="navigation" role="navigation">
         <button onClick={() => this.scrollToSection("section2")}>
           What is NoteApp
         </button>
