@@ -15,8 +15,9 @@ export default function Quotes() {
   return (
     <div className="quotes-tile">
       <div className="quotes-tile-white">
+        <h2>Motivational Quote</h2>
+
         <div className="motivational-quote">
-          <h2>Motivational Quote</h2>
           <h3 role="quote">{quote}</h3>
         </div>
       </div>

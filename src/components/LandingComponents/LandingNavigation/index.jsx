@@ -11,18 +11,6 @@ class Navigation extends React.Component {
 
   render() {
     return (
-<<<<<<< HEAD
-      <div className="navigation" role="navigation">
-        <button onClick={() => this.scrollToSection("section2")}>
-          What is NoteApp
-        </button>
-        <button onClick={() => this.scrollToSection("section3")}>
-          Register
-        </button>
-        <button onClick={() => this.scrollToSection("section3")}>
-          Contact Us
-        </button>
-=======
       <div className="navigation">
         <div className="logo-container">
           <NavLink to="/">
@@ -37,7 +25,7 @@ class Navigation extends React.Component {
             className="landbutton"
             onClick={() => this.scrollToSection("section2")}
           >
-            What is NoteApp
+            What is First Revision?
           </button>
           <button
             className="landbutton"
@@ -52,7 +40,6 @@ class Navigation extends React.Component {
             Contact Us
           </button>
         </div>
->>>>>>> dev
       </div>
     );
   }

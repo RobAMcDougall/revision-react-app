@@ -9,7 +9,6 @@
   border-radius: 20px;
   padding: 20px;
   background-color: #fcf6bd81;
-
 }
 
 .sticky-notes-board {
@@ -24,6 +23,7 @@
 }
 
 .sticky-note {
+  position: relative;
   width: 200px;
   padding: 10px;
   border-radius: 20px;
@@ -31,6 +31,22 @@
   overflow: auto;
 }
 
+.sticky-note p {
+  font-size: 20px;
+}
+
+
+.sticky-note button {
+  position: absolute;
+  bottom: 15px; 
+  right: 20px; 
+  width: 20px; 
+  height: 20px;
+  padding: 5px;
+  font-size: 12px; 
+  background-color: #ffd6a5 ; 
+  color: black
+}
 
 .notes-container {
   max-height: 200px;

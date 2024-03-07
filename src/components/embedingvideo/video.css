@@ -16,7 +16,7 @@
     margin-right: 10px;
 }
 
-.form {
+.video-form {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -53,9 +53,12 @@
 }
 
 .skip-button {
-    margin-top: 10px; /* Adjust the margin as needed */
+    margin-top: 10px;
+    /* Adjust the margin as needed */
     padding: 10px;
-    background-color: #3498db; /* Change the background color as needed */
-    color: #fff; /* Change the text color as needed */
+    background-color: #3498db;
+    /* Change the background color as needed */
+    color: #fff;
+    /* Change the text color as needed */
     cursor: pointer;
-  }
+}

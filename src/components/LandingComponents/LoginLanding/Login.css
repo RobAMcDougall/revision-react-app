@@ -2,6 +2,7 @@
     margin-top: 300px;
     margin-bottom: 300px;
     margin-left: 200px;
+    max-width: 600px;
 }
 
 h2 {
@@ -17,13 +18,15 @@ h2 {
     border-radius: 0.98rem;
     cursor: pointer;
     outline: none;
-    margin-top: 2rem;
-
-
+    margin: 2rem;
 
 }
 
 .landing:hover,
 .landing:focus-visible {
     background: hsl(200, 100%, 50%, 0.2)landing
+}
+
+.button-container {
+    margin-left: 16rem;
 }

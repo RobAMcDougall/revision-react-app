@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/Auth";
 import axios from "axios";
+import "./login.css";
 
 export default function Login() {
   const { setUser } = useAuth();
@@ -10,7 +11,7 @@ export default function Login() {
     username: "",
     password: "",
   });
-  
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -21,17 +22,17 @@ export default function Login() {
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:8080/account/login', formData);
+      await axios.post("http://localhost:8080/account/login", formData);
       setUser(formData.username);
       navigate("/HomePage");
     } catch (error) {
-      console.error('Login failed', error);
+      console.error("Login failed", error);
     }
   }
 
   return (
-    <>
-      <form onSubmit={handleSubmit}>
+    <div className="login-container">
+      <form onSubmit={handleSubmit} className="login-form">
         <input
           type="text"
           name="username"
@@ -39,6 +40,7 @@ export default function Login() {
           onChange={handleChange}
           placeholder="Username"
           autoComplete="off"
+          className="login-input"
         />
         <br />
         <input
@@ -48,14 +50,19 @@ export default function Login() {
           onChange={handleChange}
           placeholder="Password"
           autoComplete="current-password"
+          className="login-input"
         />
         <br />
-        <button type="submit">Login</button>
+        <button type="submit" className="login-button">
+          Login
+        </button>
       </form>
-      <Link to={"/register"}>
-        <button>Register Now</button>
+      <Link to={"/register"} className="register-link">
+        <button className="register-button">Register Now</button>
       </Link>
-      <p>Demo Account:</p>
-    </>
+      <p className="demo-account">Demo Account:</p>
+      <p className="demo-account">user name:demdemo</p>
+      <p className="demo-account">password:demo123456789</p>
+    </div>
   );
 }

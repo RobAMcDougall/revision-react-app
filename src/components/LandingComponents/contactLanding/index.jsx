@@ -32,7 +32,7 @@ const ContactForm = () => {
 
   return (
     <div className="contactform">
-      <Form onSubmit={handleOnSubmit}>
+      <Form className="contact" onSubmit={handleOnSubmit}>
         <Form.Field
           id="form-input-control-email"
           control={Input}
@@ -61,7 +61,7 @@ const ContactForm = () => {
           placeholder="Message…"
           required
         />
-        <Button type="submit" color="green">
+        <Button type="submit" className="button-filed" color="green">
           Submit
         </Button>
       </Form>
