@@ -1,13 +1,17 @@
-/* ContactForm.css */
+.contactform {
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
 
-.form-container {
-    max-width: 400px;
     margin: 0 auto;
 }
 
-form {
+.contact {
     display: flex;
     flex-direction: column;
+    display: flex;
+    row-gap: 5px;
+    margin: 0 auto;
 }
 
 label {
@@ -23,16 +27,16 @@ textarea {
     font-size: 16px;
 }
 
-button {
+.button-filed {
     padding: 10px 20px;
     background-color: #007bff;
     color: #fff;
     border: none;
     border-radius: 5px;
-    font-size: 16px;
+    font-size: 20px;
     cursor: pointer;
 }
 
-button:hover {
+button-filed:hover {
     background-color: #0056b3;
 }

@@ -25,7 +25,7 @@ class Navigation extends React.Component {
             className="landbutton"
             onClick={() => this.scrollToSection("section2")}
           >
-            What is NoteApp
+            What is First Revision?
           </button>
           <button
             className="landbutton"
