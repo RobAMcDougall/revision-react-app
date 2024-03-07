@@ -3,14 +3,14 @@
 import { createContext, useContext, useState } from "react";
 import axios from "axios";
 
-const AuthContext = createContext();
+const AuthContext = createContext(undefined);
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
   const login = async (credentials) => {
     try {
-      const response = await axios.post("/api/login", credentials);
+      const response = await axios.post("http://localhost:8080/account/login", credentials);
       setUser(response.data.user);
       localStorage.setItem("token", response.data.token);
     } catch (error) {
@@ -20,7 +20,7 @@ export const AuthProvider = ({ children }) => {
 
   const register = async (userData) => {
     try {
-      const response = await axios.post("/api/register", userData);
+      const response = await axios.post("http://localhost:8080/account/register", userData);
       setUser(response.data.user);
       localStorage.setItem("token", response.data.token);
     } catch (error) {
@@ -28,7 +28,12 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  const logout = () => {
+  const logout = async () => {
+    await axios.delete("http://localhost:8080/account/logout", {
+      headers: {
+        Authorization: localStorage.getItem("token")
+      }
+    });
     setUser(null);
     localStorage.removeItem("token");
   };

@@ -1,48 +1,51 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/Auth";
+import axios from "axios";
 
 export default function Login() {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
   const { setUser } = useAuth();
   const navigate = useNavigate();
-  function handleUsernameChange(e) {
-    setUsername(e.target.value);
-  }
-
-  function handlePasswordChange(e) {
-    setPassword(e.target.value);
-  }
+  const [formData, setFormData] = useState({
+    username: "",
+    password: "",
+  });
+  
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
 
   async function handleSubmit(e) {
     e.preventDefault();
-
-    setUser(username);
-    navigate("/HomePage");
+    try {
+      await axios.post('http://localhost:8080/account/login', formData);
+      setUser(formData.username);
+      navigate("/HomePage");
+    } catch (error) {
+      console.error('Login failed', error);
+    }
   }
-  // try {
-  //   const response = await axios.post('/api/register', formData);
-  //   console.log('Registration successful', response.data);
-  //   navigate('/LoginPage');
-  // } catch (error) {
-  //   console.error('Registration failed', error);
 
   return (
     <>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
-          value={username}
-          onChange={handleUsernameChange}
+          name="username"
+          value={formData.username}
+          onChange={handleChange}
           placeholder="Username"
           autoComplete="off"
         />
         <br />
         <input
           type="password"
-          value={password}
-          onChange={handlePasswordChange}
+          name="password"
+          value={formData.password}
+          onChange={handleChange}
           placeholder="Password"
           autoComplete="current-password"
         />

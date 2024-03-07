@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import "./Note.css";
 
 const Notes = ({ currentTimestamp, setCurrentTimestamp, playerRef }) => {
@@ -9,7 +9,7 @@ const Notes = ({ currentTimestamp, setCurrentTimestamp, playerRef }) => {
   const handleSkipToTimestamp = (timestamp) => {
     setCurrentTimestamp(timestamp);
     const player = playerRef.current;
-    if (player && player.seekTo) {
+    if (player) {
       player.seekTo(timestamp, true);
     }
   };
