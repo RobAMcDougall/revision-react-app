@@ -36,15 +36,16 @@ function PageWrapper() {
             Coming Soon
           </NavLink>
 
+          <NavLink className="link" to="/" onClick={handleLogout}>
+            LogOut
+          </NavLink>
+
           <input
             type="checkbox"
             onClick={handleClick}
             name="checkbox"
             className="switch"
           />
-          <NavLink className="link" to="/" onClick={handleLogout}>
-            LogOut
-          </NavLink>
         </nav>
       </div>
       <Outlet />

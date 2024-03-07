@@ -12,8 +12,8 @@ function HomePage() {
     <div className="container">
       <div className="f1">
         <div className="welcome-message">
-          <p className="wel">Welcome,</p>
-          <p className="message"> what would you like to work on today?</p>
+          <p className="wel">Welcome</p>
+          <p className="message">What would you like to work on today?</p>
         </div>
         <div>
           <Timer />

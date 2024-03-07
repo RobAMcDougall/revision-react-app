@@ -11,10 +11,10 @@ function App() {
     <ThemeProvider>
       <AuthProvider>
         <Routes>
-          <Route
+          {/* <Route
             path="/HomePage"
             element={<ProtectedRoute redirectTo="/login" />}
-          >
+          > */}
             <Route path="/HomePage" element={<PageWrapper />}>
               <Route index element={<Pages.HomePage />} />
 
@@ -23,7 +23,7 @@ function App() {
                 element={<Pages.VideoTakingPage />}
               />
             </Route>
-          </Route>
+          {/* </Route> */}
 
           <Route path="/" element={<Pages.LandingPage />} />
           <Route path="/login" element={<Pages.LoginPage />} />

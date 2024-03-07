@@ -9,13 +9,26 @@
   border-radius: 20px;
   padding: 30px;
   background-color: #e4c1f996;
-
 }
 
 .timer-buttons {
   display: flex;
   flex-direction: row;
   column-gap: 10px;
+}
+
+.timer-button {
+  background-color: #ffd6a5 ; /* Set the desired button color */
+  color: black; /* Set text color to white for better contrast */
+  padding: 10px 20px; /* Add padding for a better button appearance */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px; /* Adjust font size as needed */
+}
+
+.timer-button:hover {
+  background-color: #87c1f5; /* Change color on hover if desired */
 }
 
 .timer-display {
