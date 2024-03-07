@@ -11,9 +11,9 @@ async function createVideoNote(ctx) {
     }
 }
 
-async function retrieveVideoNote(ctx) {
+async function retrieveVideoNotes(ctx) {
     try {
-        ctx.body = await VideoNote.getVideoNote(ctx.params.id);
+        ctx.body = await VideoNote.getVideoNotes(ctx.params.card);
         ctx.status = 200;
     } catch {
         ctx.status = 404;
@@ -38,4 +38,4 @@ async function deleteVideoNote(ctx) {
     }
 }
 
-module.exports = {createVideoNote, retrieveVideoNote, updateNoteText, deleteVideoNote};
+module.exports = {createVideoNote, retrieveVideoNotes, updateNoteText, deleteVideoNote};

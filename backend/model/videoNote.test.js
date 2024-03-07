@@ -57,20 +57,10 @@ describe("getVideoCard", () => {
         const testNote = {id: 1, video: 1, text: "test"};
         vi.spyOn(db, "query").mockResolvedValueOnce({rows: [testNote]});
 
-        const result = await videoNote.getVideoNote(1);
-        expect(result.video).toBe(1);
-        expect(result.text).toBe("test");
-    });
-
-    it("should throw an error on non-existent video notes", async () => {
-        vi.spyOn(db, "query").mockResolvedValueOnce(null);
-
-        try {
-            await videoNote.getVideoNote(1);
-        } catch (err) {
-            expect(err).toBeDefined();
-            expect(err.message).toBe("Video note could not be found.");
-        }
+        const result = await videoNote.getVideoNotes(1);
+        expect(result).toHaveLength(1);
+        expect(result[0].video).toBe(1);
+        expect(result[0].text).toBe("test");
     });
 });
 

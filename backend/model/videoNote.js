@@ -12,14 +12,9 @@ async function createVideoNote(videoId, text, timestamp) {
     return result.rows[0];
 }
 
-async function getVideoNote(id) {
-    const response = await db.query("SELECT * FROM video_note WHERE id = $1", [id]);
-
-    try {
-        return response.rows[0];
-    } catch {
-        throw new Error("Video note could not be found.");
-    }
+async function getVideoNotes(video) {
+    const response = await db.query("SELECT * FROM video_note WHERE video = $1", [video]);
+    return response.rows;
 }
 
 async function deleteVideoNote(id){
@@ -45,4 +40,4 @@ async function updateNoteText(id, text) {
     }
 }
 
-module.exports = {createVideoNote, getVideoNote, deleteVideoNote, updateNoteText};
+module.exports = {createVideoNote, getVideoNotes, deleteVideoNote, updateNoteText};
