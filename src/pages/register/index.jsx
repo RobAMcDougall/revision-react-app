@@ -20,9 +20,9 @@ const RegisterPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("/api/register", formData);
+      const response = await axios.post("http://localhost:8080/account/register", formData);
       console.log("Registration successful", response.data);
-      navigate("/LoginPage");
+      navigate("/login");
     } catch (error) {
       console.error("Registration failed", error);
     }
