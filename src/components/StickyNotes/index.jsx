@@ -16,13 +16,13 @@ export default function StickyNotes() {
   };
 
   useEffect(() => {
-    if(notes.length > 0){
-      localStorage.setItem('notes', JSON.stringify(notes));
+    if (notes.length > 0) {
+      localStorage.setItem("notes", JSON.stringify(notes));
     }
   }, [notes]);
 
   useEffect(() => {
-    const storedNotes = JSON.parse(localStorage.getItem('notes')) || [];
+    const storedNotes = JSON.parse(localStorage.getItem("notes")) || [];
     setNotes(storedNotes);
   }, []);
 
@@ -49,20 +49,19 @@ export default function StickyNotes() {
             />
             <button onClick={addNote}>Add</button>
           </div>
-          <div className="notes-container">
-            {notes.map((note) => (
-              <div
-                key={note.id}
-                className="sticky-note"
-                style={{ background: note.color }}
-                data-testid="sticky-note"  // Add data-testid here
-              >
-                <p>{note.text}</p>
-                <button onClick={() => removeNote(note.id)}>X</button>
-              </div>
-            ))}
-          </div>
         </div>
+      </div>
+      <div className="notes-container">
+        {notes.map((note) => (
+          <div
+            key={note.id}
+            className="sticky-note"
+            style={{ background: note.color }}
+          >
+            <p>{note.text}</p>
+            <button onClick={() => removeNote(note.id)}>X</button>
+          </div>
+        ))}
       </div>
     </div>
   );

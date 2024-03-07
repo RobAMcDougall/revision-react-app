@@ -1,33 +1,17 @@
 .quotes-tile {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 43vw;
-    height: 45vw;
-    background-color: #e4c1f9;
-    border-radius: 50px;
-    margin: 10px;
-  }
-  
-  .quotes-tile-white {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 90%;
-    height: 90%;
-    background-color: white;
-    border-radius: 50px;
-    margin: 10px;
-  }
-  
-  .motivational-quote {
-    margin: 20px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    text-align: center;
-  }
-  
-  blockquote {
-    font-style: italic;
-  }
+  border: 10px solid #e4c1f988;
+  border-radius: 20px;
+  padding: 20px;
+  padding-right: 0;
+  background-color: #e4c1f996;
+  height: 260px;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  max-width: 400px;
+
+}
+
+.motivational-quote {
+  margin-left: 20px;
+}
