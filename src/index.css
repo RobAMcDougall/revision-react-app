@@ -1,253 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 body {
-    margin: 0;
-    transition: background 0.3s linear, color 0.3s linear;
-    padding-top: 0;
-    max-width: 1300px;
-    margin: 0;
-    padding-bottom: 0px;
-    padding-top: 0px;
-    max-width: 1300px;
+  margin: 0;
+  transition: background 0.3s linear, color 0.3s linear;
+  padding-top: 0;
+  max-width: 1300px;
+  margin: 0;
+  padding-bottom: 0px;
+  padding-top: 0px;
+  max-width: 1300px;
+
+  font-family: "Hind", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 
 }
 
 #root {
-    padding: 0;
-    margin: 0;
-    max-width: 1300;
+  padding: 0;
+  margin: 0;
+  max-width: 1300;
 
-    height: 100vh;
+  height: 100vh;
 
 }
 
 
 body.dark {
-    background-color: #1f1f1f;
-    color: white;
-    margin: 0;
-    transition: background 0.3s linear, color 0.3s linear;
-    padding-top: 0;
-    max-width: 1300px;
-    margin: 0 auto;
-    padding-bottom: 0;
-    padding-top: 0;
-    max-width: 1300px;
+  background-color: #1f1f1f;
+  color: white;
+  margin: 0;
+  transition: background 0.3s linear, color 0.3s linear;
+  padding-top: 0;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding-bottom: 0;
+  padding-top: 0;
+  max-width: 1300px;
 
-    margin: 0 auto;
-    padding-bottom: 0;
-    display: block;
+  margin: 0 auto;
+  padding-bottom: 0;
+  display: block;
+  font-family: "Hind", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 body.light {
-    background-color: #F6FAFF;
-    color: black;
-    margin: 0;
-    transition: background 0.3s linear, color 0.3s linear;
-    padding-top: 0;
-    max-width: 1300px;
-    margin: 0 auto;
-    padding-bottom: 0;
-    padding-top: 0;
-    max-width: 1300px;
+  background-color: #dcecff9c;
+  color: black;
+  margin: 0;
+  transition: background 0.3s linear, color 0.3s linear;
+  padding-top: 0;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding-bottom: 0;
+  padding-top: 0;
+  max-width: 1300px;
 
-    margin: 0 auto;
-    padding-bottom: 0;
-    display: block;
+  margin: 0 auto;
+  padding-bottom: 0;
+  display: block;
+  font-family: "Hind", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
-
-nav {
-    margin-top: 5px;
-    padding: 0;
-}
-
-.logo {
-    margin: 0;
-    font-size: 1.5em
-}
-
-.link {
-    padding: 0px 15px;
-    text-transform: uppercase;
-    text-align: center;
-}
-
-.header {
-    display: flex;
-	padding-top: .5em;
-	padding-bottom: .5em;
-	border: 1px solid bisque;
-	background-color: beige;
-	-webkit-box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.75);
-	-moz-box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.75);
-	box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.75);
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-	border-radius: 5px;
-}
-
-.switch {
-    position: relative;
-    width: 130px;
-    height: 50px;
-    margin: 0px;
-    appearance: none;
-    -webkit-appearance: none;
-    background-color: rgb(4,52,73);
-    background-size: cover;
-    background-repeat: no-repeat;
-    border-radius: 25px;
-    transition: background-image .7s ease-in-out;
-    outline: none;
-    cursor: pointer;
-    overflow: hidden;
-  }
-  
-  .switch:checked {
-    background-color: rgb(0, 195, 255);
-    background-size: cover;
-    transition: background-image 1s ease-in-out;
-  }
-  
-  .switch:after {
-    content: '';
-    width: 46px;
-    height: 46px;
-    border-radius: 50%;
-    background-color: #fff;
-    position: absolute;
-    left: 2px;
-    top: 2px;
-    transform: translateX(0px);
-    animation: off .7s forwards cubic-bezier(.8, .5, .2, 1.4);
-    box-shadow: inset 5px -5px 4px rgba(53, 53, 53, 0.3);
-  }
-  
-  @keyframes off {
-    0% {
-      transform: translateX(80px);
-      width: 46px;
-    }
-  
-    50% {
-      width: 75px;
-      border-radius: 25px;
-    }
-  
-    100% {
-      transform: translateX(0px);
-      width: 46px;
-    }
-  }
-  
-  .switch:checked:after {
-    animation: on .7s forwards cubic-bezier(.8, .5, .2, 1.4);
-    box-shadow: inset -5px -5px 4px rgba(53, 53, 53, 0.3);
-  }
-  
-  @keyframes on {
-    0% {
-      transform: translateX(0px);
-      width: 46px;
-    }
-  
-    50% {
-      width: 75px;
-      border-radius: 25px;
-    }
-  
-    100% {
-      transform: translateX(80px);
-      width: 46px;
-    }
-  }
-  
-  .switch:checked:before {
-    content: '';
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    position: absolute;
-    left: 15px;
-    top: 5px;
-    transform-origin: 53px 10px;
-    background-color: transparent;
-    box-shadow: 5px -1px 0px #fff;
-    filter: blur(0px);
-    animation: sun .7s forwards ease;
-  }
-  
-  @keyframes sun {
-    0% {
-      transform: rotate(170deg);
-      background-color: transparent;
-      box-shadow: 5px -1px 0px #fff;
-      filter: blur(0px);
-    }
-  
-    50% {
-      background-color: transparent;
-      box-shadow: 5px -1px 0px #fff;
-      filter: blur(0px);
-    }
-  
-    90% {
-      background-color: #f5daaa;
-      box-shadow: 0px 0px 10px #f5deb4,
-      0px 0px 20px #f5deb4,
-      0px 0px 30px #f5deb4,
-       inset 0px 0px 2px #efd3a3;
-      filter: blur(1px);
-    }
-  
-    100% {
-      transform: rotate(0deg);
-      background-color: #f5daaa;
-      box-shadow: 0px 0px 10px #f5deb4,
-      0px 0px 20px #f5deb4,
-      0px 0px 30px #f5deb4,
-       inset 0px 0px 2px #efd3a3;
-      filter: blur(1px);
-    }
-  }
-  
-  .switch:before {
-    content: '';
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    position: absolute;
-    left: 15px;
-    top: 5px;
-    filter: blur(1px);
-    background-color: #f5daaa;
-    box-shadow: 0px 0px 10px #f5deb4,
-  0px 0px 20px #f5deb4,
-  0px 0px 30px #f5deb4,
-   inset 0px 0px 2px #efd3a3;
-    transform-origin: 53px 10px;
-    animation: moon .7s forwards ease;
-  }
-  
-  @keyframes moon {
-    0% {
-      transform: rotate(0deg);
-      filter: blur(1px);
-    }
-  
-    50% {
-      filter: blur(1px);
-    }
-  
-    90% {
-      background-color: transparent;
-      box-shadow: 5px -1px 0px #fff;
-      filter: blur(0px);
-    }
-  
-    100% {
-      transform: rotate(170deg);
-      background-color: transparent;
-      box-shadow: 5px -1px 0px #fff;
-      filter: blur(0px);
-    }
-  }
-  

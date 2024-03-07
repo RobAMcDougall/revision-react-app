@@ -1,6 +1,7 @@
 import { NavLink, Outlet } from "react-router-dom";
 import { useTheme } from "../../context/dark-theme context";
 import { useAuth } from "../../context/Auth";
+import "./wrapper.css";
 
 function PageWrapper() {
   const { toggleTheme } = useTheme();
@@ -15,9 +16,16 @@ function PageWrapper() {
   };
   return (
     <>
-      <header className="header">
-        <h1 className="logo">First Revision</h1>
-        <nav>
+      <div className="header">
+        <div className="logo-container">
+          <NavLink to="/">
+            <img src="../../public/logolight.svg" />
+          </NavLink>
+          <NavLink to="/">
+            <h1 className="logo">First Revision</h1>
+          </NavLink>
+        </div>
+        <nav className="navLink">
           <NavLink className="link" to="/HomePage">
             DashBoard
           </NavLink>
@@ -27,12 +35,7 @@ function PageWrapper() {
           <NavLink className="link" to="#">
             Coming Soon
           </NavLink>
-          <NavLink className="link" to="#">
-            Coming Soon
-          </NavLink>
-          <NavLink className="link" to="#">
-            Coming Soon
-          </NavLink>
+
           <input
             type="checkbox"
             onClick={handleClick}
@@ -43,7 +46,7 @@ function PageWrapper() {
             LogOut
           </NavLink>
         </nav>
-      </header>
+      </div>
       <Outlet />
     </>
   );

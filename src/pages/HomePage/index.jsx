@@ -1,3 +1,4 @@
+import "./home.css";
 import {
   StickyNotes,
   Quotes,
@@ -9,21 +10,22 @@ import "../../App.css";
 function HomePage() {
   return (
     <div className="container">
-      <div className="dashboard-section1">
+      <div className="f1">
         <div className="welcome-message">
-          Welcome, what would you like to work on today?
+          <p className="wel">Welcome,</p>
+          <p className="message"> what would you like to work on today?</p>
         </div>
-        <FullCalendar />
-      </div>
-      <div className="dashboard-section2">
-        <div className="dashboard-section3">
-          <Todos />
+        <div>
           <Timer />
         </div>
-        <div className="dashboard-section4">
-          <StickyNotes />
-          <Quotes />
-        </div>
+      </div>
+      <div className="f2">
+        <FullCalendar />
+        <Todos />
+      </div>
+      <div className="f3">
+        <Quotes />
+        <StickyNotes />
       </div>
     </div>
   );

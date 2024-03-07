@@ -11,9 +11,9 @@ async function createVideoCard(ctx) {
     }
 }
 
-async function retrieveVideoCard(ctx) {
+async function retrieveVideoCards(ctx) {
     try {
-        ctx.body = await VideoCard.getVideoCard(ctx.params.id);
+        ctx.body = await VideoCard.getVideoCards(ctx.params.account);
         ctx.status = 200;
     } catch {
         ctx.status = 404;
@@ -44,4 +44,4 @@ async function deleteVideoCard(ctx) {
     }
 }
 
-module.exports = {createVideoCard, retrieveVideoCard, updateResumeTimestamp, deleteVideoCard};
+module.exports = {createVideoCard, retrieveVideoCards, updateResumeTimestamp, deleteVideoCard};

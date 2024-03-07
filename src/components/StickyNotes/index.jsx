@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./index.css";
 
 export default function StickyNotes() {
@@ -14,6 +14,17 @@ export default function StickyNotes() {
       setInputValue("");
     }
   };
+
+  useEffect(() => {
+    if (notes.length > 0) {
+      localStorage.setItem("notes", JSON.stringify(notes));
+    }
+  }, [notes]);
+
+  useEffect(() => {
+    const storedNotes = JSON.parse(localStorage.getItem("notes")) || [];
+    setNotes(storedNotes);
+  }, []);
 
   const removeNote = (id) => {
     setNotes((prevNotes) => prevNotes.filter((note) => note.id !== id));
@@ -38,19 +49,19 @@ export default function StickyNotes() {
             />
             <button onClick={addNote}>Add</button>
           </div>
-          <div className="notes-container">
-            {notes.map((note) => (
-              <div
-                key={note.id}
-                className="sticky-note"
-                style={{ background: note.color }}
-              >
-                <p>{note.text}</p>
-                <button onClick={() => removeNote(note.id)}>X</button>
-              </div>
-            ))}
-          </div>
         </div>
+      </div>
+      <div className="notes-container">
+        {notes.map((note) => (
+          <div
+            key={note.id}
+            className="sticky-note"
+            style={{ background: note.color }}
+          >
+            <p>{note.text}</p>
+            <button onClick={() => removeNote(note.id)}>X</button>
+          </div>
+        ))}
       </div>
     </div>
   );

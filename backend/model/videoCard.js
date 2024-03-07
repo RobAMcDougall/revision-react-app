@@ -9,14 +9,9 @@ async function createVideoCard(account, videoId){
     return response.rows[0];
 }
 
-async function getVideoCard(id) {
-    const response = await db.query("SELECT * FROM video_card WHERE id = $1", [id]);
-    
-    try {
-        return response.rows[0];
-    } catch {
-        throw new Error("Video card could not be found.");
-    }
+async function getVideoCards(account) {
+    const response = await db.query("SELECT * FROM video_card WHERE account = $1", [account]);
+    return response.rows;
 }
 
 async function deleteVideoCard(id){
@@ -42,4 +37,4 @@ async function updateResumeTimestamp(id, timestamp) {
     }
 }
 
-module.exports = {createVideoCard, getVideoCard, deleteVideoCard, updateResumeTimestamp};
+module.exports = {createVideoCard, getVideoCards, deleteVideoCard, updateResumeTimestamp};
