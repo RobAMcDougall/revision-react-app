@@ -1,10 +1,22 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import "./Note.css";
 
 const Notes = ({ currentTimestamp, setCurrentTimestamp, playerRef }) => {
   const [note, setNote] = useState("");
   const textareaRef = useRef(null);
   const [notes, setNotes] = useState([]);
+
+  useEffect(() => {
+    if(notes.length > 0){
+      localStorage.setItem('videonotes', JSON.stringify(notes));
+    }
+  }, [notes]);
+
+  useEffect(() => {
+    const storedNotes = JSON.parse(localStorage.getItem('videonotes')) || [];
+    setNotes(storedNotes);
+  }, []);
+
 
   const handleSkipToTimestamp = (timestamp) => {
     setCurrentTimestamp(timestamp);
