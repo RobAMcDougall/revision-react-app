@@ -1,6 +1,6 @@
 # Revision-Project
 
-This app is live on git hub pages on:
+This app is live on git hub pages on: https://revision-react-app.onrender.com/
 
 # Installation
 

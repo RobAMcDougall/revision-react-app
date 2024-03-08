@@ -33,7 +33,9 @@ export default function Login() {
   return (
     <div className="login-container">
       <form onSubmit={handleSubmit} className="login-form">
-        <h2 className="formtitle">Revision First</h2>
+        <Link to="/">
+          <h1 className="logo-name">First Revision</h1>
+        </Link>
         <input
           type="text"
           name="username"
