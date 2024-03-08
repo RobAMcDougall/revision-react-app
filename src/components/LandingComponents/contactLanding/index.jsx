@@ -32,6 +32,7 @@ const ContactForm = () => {
 
   return (
     <div className="contactform">
+      <h2>Contact Us</h2>
       <Form className="contact" onSubmit={handleOnSubmit}>
         <Form.Field
           id="form-input-control-email"

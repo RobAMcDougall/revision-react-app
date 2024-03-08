@@ -50,7 +50,12 @@ function TODOLanding() {
     <>
       <div className="wholeSection">
         <div className="img-container">
-          <img src="/Screenshot_2.png" ref={pictureRef} alt="Screenshot" />
+          <img
+            className="todo-landing"
+            src="/todotodo.png"
+            ref={pictureRef}
+            alt="Screenshot"
+          />
         </div>
         <div className="text">
           <h2 className="title">The Power of To-Do Lists</h2>

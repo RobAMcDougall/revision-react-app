@@ -60,7 +60,12 @@ function CalenderLanding() {
           </p>
         </div>
         <div>
-          <img src="/Screenshot_3.png" ref={pictureRef} alt="Screenshot" />
+          <img
+            className="calender-landing"
+            src="../../../../public/calender.png"
+            ref={pictureRef}
+            alt="Screenshot"
+          />
         </div>
       </div>
     </>

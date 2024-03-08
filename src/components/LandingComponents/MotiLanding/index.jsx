@@ -50,7 +50,7 @@ function MotiLanding() {
     <>
       <div className="wholeSection">
         <div>
-          <img src="/Screenshot_4.png" ref={pictureRef} alt="Screenshot" />
+          <img src="/motivationalmoti.png" ref={pictureRef} alt="Screenshot" />
         </div>
         <div className="text">
           <h2 className="title">Daily Motivation with Our App</h2>

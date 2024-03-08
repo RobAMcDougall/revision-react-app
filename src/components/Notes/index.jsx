@@ -7,16 +7,15 @@ const Notes = ({ currentTimestamp, setCurrentTimestamp, playerRef }) => {
   const [notes, setNotes] = useState([]);
 
   useEffect(() => {
-    if(notes.length > 0){
-      localStorage.setItem('videonotes', JSON.stringify(notes));
+    if (notes.length > 0) {
+      localStorage.setItem("videonotes", JSON.stringify(notes));
     }
   }, [notes]);
 
   useEffect(() => {
-    const storedNotes = JSON.parse(localStorage.getItem('videonotes')) || [];
+    const storedNotes = JSON.parse(localStorage.getItem("videonotes")) || [];
     setNotes(storedNotes);
   }, []);
-
 
   const handleSkipToTimestamp = (timestamp) => {
     setCurrentTimestamp(timestamp);
@@ -67,14 +66,17 @@ const Notes = ({ currentTimestamp, setCurrentTimestamp, playerRef }) => {
   const renderNotes = () => {
     return notes.map((note, index) => (
       <div key={index} className="note">
-        <p>{note.text}</p>
+        <p className="note">{note.text}</p>
         <button
           onClick={() => handleSkipToTimestamp(note.timestamp)}
           className="timestamp-button"
         >
           {note.formattedTimestamp}
         </button>
-        <button onClick={() => handleDeleteNote(index)} className="delete-button">
+        <button
+          onClick={() => handleDeleteNote(index)}
+          className="delete-button"
+        >
           Delete
         </button>
       </div>

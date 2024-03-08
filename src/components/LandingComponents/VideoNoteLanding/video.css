@@ -8,9 +8,10 @@
     column-gap: 160px;
 }
 
-img {
+.video-landing {
     border-radius: 70px;
-    border: 1px solid black;
+
+    height: 400px;
 
 }
 

@@ -64,7 +64,7 @@ function VideoNoteLanding() {
           </p>
         </div>
         <div className="imgContainer" ref={pictureRef}>
-          <img src="/Screenshot_1.png" alt="Screenshot" />
+          <img className="video-landing" src="/video.png" alt="Screenshot" />
         </div>
       </div>
     </>

@@ -8,10 +8,10 @@
     column-gap: 160px;
 }
 
-img {
+.todo-landing {
     border-radius: 70px;
-    border: 1px solid black;
 
+    height: 500px
 }
 
 .text {
