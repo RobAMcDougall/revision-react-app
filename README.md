@@ -9,7 +9,7 @@ simply utilise npm install.
 
 # Usage
 
-To properly use this project follwing installation you will need to utilise `npm run dev` on both the front and back ends and follow the linked page provided by Vite
+To properly use this project follwing installation you will need to utilise `npm run dev` on both the front and back ends and follow the linked page provided by Vite.
 
 # project aim and description:
 
@@ -19,12 +19,12 @@ Our aim with this project has been to create an all in one organisational and re
 
 # Technologies used:
 
-HTML, CSS, JavaScript, React, SQL
+HTML, CSS, JavaScript, React, PostgreSQL, NodeJS, Axios, Vite and Vitest, GSAP, SemanticUI, Webflow, Figma, Trello and Git/Github.
 
 # Process:
 
-We
+We began by creating brainstorming the functionality we wish to be included, followed by lo-fi and hi-fi designs utilising figma. Following this we began the process of designing the database to store the necessary information, before moving onto creating the necessary structure for both the front and back ends. We created a components tree to help us design how we would divide the components up and have them work together. Finally we added front and back end testing and tightened up the design to fit new needs and inspirations as and when they arose.
 
 # credits:
 
-This is a collab project between Malak Abdalla, Rob McDougall, Nishan Dudakia and Rares Gamanescu
+This is a collab project between Malak Abdalla, Rob McDougall, Nishan Dudakia and Rares Gamanescu.
