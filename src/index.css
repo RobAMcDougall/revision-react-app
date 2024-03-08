@@ -27,7 +27,7 @@ body {
 
 
 body.dark {
-  background-color: #1f1f1f;
+  background-color: #1f1f1fee;
   color: white;
   margin: 0;
   transition: background 0.3s linear, color 0.3s linear;

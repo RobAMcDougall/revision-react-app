@@ -62,7 +62,7 @@ function CalenderLanding() {
         <div>
           <img
             className="calender-landing"
-            src="../../../../public/calender.png"
+            src="/calender.png"
             ref={pictureRef}
             alt="Screenshot"
           />

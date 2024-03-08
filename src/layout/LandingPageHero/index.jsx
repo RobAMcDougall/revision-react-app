@@ -6,7 +6,10 @@ function HeroSection() {
       <div className="hero">
         <div className="hero-content">
           <div className="hero1">
-            <h1 className="herotitle">First Revision</h1>
+            <h1 className="herotitle">
+              Your first all-in-one solution for efficient, organised revision.
+              We are First Revision
+            </h1>
             <img className="heroimg" src="/hero.jpg" />
           </div>
           <div className="hero2">

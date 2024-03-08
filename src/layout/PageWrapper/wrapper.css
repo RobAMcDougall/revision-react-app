@@ -10,6 +10,10 @@
     padding: 0 20px;
 }
 
+.logo-name {
+    font-size: 40px;
+    color: hsla(200, 53%, 48%, 0.966)
+}
 
 .navLink {
     display: flex;
