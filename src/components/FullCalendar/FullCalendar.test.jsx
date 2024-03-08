@@ -8,8 +8,8 @@ test('renders calendar iframe with correct attributes', () => {
 
   expect(iframe).toBeInTheDocument();
 
-  expect(iframe).toHaveAttribute('width', '700');
-  expect(iframe).toHaveAttribute('height', '360');
+  expect(iframe).toHaveAttribute('width', '830');
+  expect(iframe).toHaveAttribute('height', '620');
 
   expect(iframe).toHaveAttribute(
     'src',

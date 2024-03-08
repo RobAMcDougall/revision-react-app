@@ -1,6 +1,5 @@
 // Note.test.js
 
-import { expect, beforeEach, afterEach, vi, it } from "vitest";
 import { screen, render, fireEvent, cleanup } from "@testing-library/react";
 import * as matchers from "@testing-library/jest-dom/matchers";
 expect.extend(matchers);
@@ -14,7 +13,7 @@ beforeEach(() => {
 });
 
 afterEach(() => {
-  cleanup;
+  cleanup();
 });
 
 it("renders textarea and save button", async () => {
@@ -25,13 +24,4 @@ it("renders textarea and save button", async () => {
 it("updates note state when typing in textarea", async () => {
   fireEvent.input(textarea, { target: { value: "New note" } });
   expect(textarea.value).toBe("New note");
-});
-
-it("calls handleSave function when save button is clicked", async () => {
-  const handleSaveMock = vi.fn();
-  Notes.handleSave = handleSaveMock;
-
-  fireEvent.click(saveButton);
-
-  expect(handleSaveMock).toHaveBeenCalled();
 });

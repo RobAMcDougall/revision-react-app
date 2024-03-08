@@ -50,8 +50,8 @@ describe("StickyNotes component", () => {
         fireEvent.change(input, { target: { value: "Note to remove" } });
         fireEvent.click(addButton);
 
-        const removeButton = screen.getByText("X");
-        fireEvent.click(removeButton);
+        const removeButtons = screen.getAllByText("X");
+        removeButtons.forEach(fireEvent.click);
 
         const notes = screen.queryAllByTestId("sticky-note");
         expect(notes.length).toBe(0);

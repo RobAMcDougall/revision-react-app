@@ -58,6 +58,7 @@ export default function StickyNotes() {
           <div
             key={note.id}
             className="sticky-note"
+            data-testid="sticky-note"
             style={{ background: note.color }}
           >
             <p>{note.text}</p>
