@@ -33,7 +33,7 @@ class LandingPage extends React.Component {
             style={{
               animation: "moveLeftRight1 5s infinite alternate",
               position: "absolute",
-              left: "50px",
+              left: "550px",
               top: "1200px",
             }}
           />
@@ -77,7 +77,7 @@ class LandingPage extends React.Component {
             style={{
               animation: "moveUpDown2 5.5s infinite alternate",
               position: "absolute",
-              left: "350px",
+              left: "1050px",
               top: "3000px",
             }}
           />
@@ -99,8 +99,8 @@ class LandingPage extends React.Component {
             style={{
               animation: "moveUpDown3 6s infinite alternate",
               position: "absolute",
-              left: "1500px",
-              top: "1000px",
+              left: "400px",
+              top: "1600px",
             }}
           />
           <img
@@ -121,7 +121,7 @@ class LandingPage extends React.Component {
             style={{
               animation: "moveUpDown4 4.5s infinite alternate",
               position: "absolute",
-              left: "1250px",
+              left: "2000px",
               top: "520px",
             }}
           />

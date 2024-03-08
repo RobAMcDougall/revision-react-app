@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import "./index.css";
+import "./sticky.css";
 
 export default function StickyNotes() {
   const [notes, setNotes] = useState([]);
@@ -47,7 +47,9 @@ export default function StickyNotes() {
               onChange={(e) => setInputValue(e.target.value)}
               placeholder="Add a new note"
             />
-            <button onClick={addNote}>Add</button>
+            <button className="sticky-button" onClick={addNote}>
+              Add
+            </button>
           </div>
         </div>
       </div>
@@ -59,7 +61,12 @@ export default function StickyNotes() {
             style={{ background: note.color }}
           >
             <p>{note.text}</p>
-            <button onClick={() => removeNote(note.id)}>X</button>
+            <button
+              className="sticky-button "
+              onClick={() => removeNote(note.id)}
+            >
+              X
+            </button>
           </div>
         ))}
       </div>

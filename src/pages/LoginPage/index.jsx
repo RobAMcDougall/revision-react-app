@@ -33,6 +33,7 @@ export default function Login() {
   return (
     <div className="login-container">
       <form onSubmit={handleSubmit} className="login-form">
+        <h2 className="formtitle">Revision First</h2>
         <input
           type="text"
           name="username"
@@ -56,13 +57,15 @@ export default function Login() {
         <button type="submit" className="login-button">
           Login
         </button>
+        <Link to={"/register"} className="register-link">
+          <button className="register-button">Register Now</button>
+        </Link>
+        <div className="demo-account">
+          <p className="para-login">Demo Account:</p>
+          <p className="para-login"> Username: demdemo</p>
+          <p className="para-login">Password: demo123456789</p>
+        </div>
       </form>
-      <Link to={"/register"} className="register-link">
-        <button className="register-button">Register Now</button>
-      </Link>
-      <p className="demo-account">Demo Account:</p>
-      <p className="demo-account">user name:demdemo</p>
-      <p className="demo-account">password:demo123456789</p>
     </div>
   );
 }

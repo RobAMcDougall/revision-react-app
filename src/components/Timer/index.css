@@ -18,17 +18,19 @@
 }
 
 .timer-button {
-  background-color: #ffd6a5 ; /* Set the desired button color */
-  color: black; /* Set text color to white for better contrast */
-  padding: 10px 20px; /* Add padding for a better button appearance */
+  background-color: #e1b0fd;
+  color: black;
+  padding: 10px 20px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 16px; /* Adjust font size as needed */
+  font-size: 16px;
+
 }
 
 .timer-button:hover {
-  background-color: #87c1f5; /* Change color on hover if desired */
+  background-color: #b952f588;
+
 }
 
 .timer-display {

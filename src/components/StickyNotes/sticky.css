@@ -25,6 +25,7 @@
 .sticky-note {
   position: relative;
   width: 200px;
+  height: 100px;
   padding: 10px;
   border-radius: 20px;
   margin-bottom: 10px;
@@ -36,16 +37,14 @@
 }
 
 
-.sticky-note button {
-  position: absolute;
-  bottom: 15px; 
-  right: 20px; 
-  width: 20px; 
-  height: 20px;
+.sticky-button {
+  width: 20px;
   padding: 5px;
-  font-size: 12px; 
-  background-color: #ffd6a5 ; 
-  color: black
+  border: none;
+  background-color: #fbbd085e;
+  color: black;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
 }
 
 .notes-container {

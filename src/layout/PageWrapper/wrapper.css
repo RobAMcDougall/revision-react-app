@@ -4,7 +4,9 @@
     flex-wrap: nowrap;
     justify-content: space-between;
     padding-top: 20px;
-    background-color: #b4d9f09f;
+    background-color: #b4d9f046;
+    backdrop-filter: blur(300px);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
     padding: 0 20px;
 }
 
