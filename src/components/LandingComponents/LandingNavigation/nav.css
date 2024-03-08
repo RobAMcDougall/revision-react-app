@@ -26,3 +26,19 @@
 .landbutton:focus-visible {
     background: hsl(200, 100%, 50%, 0.2)landing
 }
+
+.logo {
+    height: 100px
+}
+
+.logo-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-name {
+    font-size: 40px;
+    color: hsla(200, 100%, 27%, 0.966)
+}

@@ -14,10 +14,10 @@ class Navigation extends React.Component {
       <div className="navigation">
         <div className="logo-container">
           <NavLink to="/">
-            <img src="../../public/02logo.svg" />
+            <img className="logo" src="/First Revision (2).svg" />
           </NavLink>
           <NavLink to="/">
-            <h1 className="logo">First Revision</h1>
+            <h1 className="logo-name">First Revision</h1>
           </NavLink>
         </div>
         <div className="scroll">
