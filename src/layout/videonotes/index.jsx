@@ -8,12 +8,23 @@ function VideoS1() {
   const [videoUrl, setVideoUrl] = useState("");
   const playerRef = useRef(null);
 
-
   return (
     <>
       <div className="section1">
-        <VideoPlayer currentTimestamp={currentTimestamp} setCurrentTimestamp={setCurrentTimestamp} videoUrl={videoUrl} setVideoUrl={setVideoUrl} playerRef={playerRef} />
-        <Notes currentTimestamp={currentTimestamp} setCurrentTimestamp={setCurrentTimestamp} videoUrl={videoUrl} setVideoUrl={setVideoUrl} playerRef={playerRef}/>
+        <Notes
+          currentTimestamp={currentTimestamp}
+          setCurrentTimestamp={setCurrentTimestamp}
+          videoUrl={videoUrl}
+          setVideoUrl={setVideoUrl}
+          playerRef={playerRef}
+        />
+        <VideoPlayer
+          currentTimestamp={currentTimestamp}
+          setCurrentTimestamp={setCurrentTimestamp}
+          videoUrl={videoUrl}
+          setVideoUrl={setVideoUrl}
+          playerRef={playerRef}
+        />
       </div>
     </>
   );
