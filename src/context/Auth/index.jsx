@@ -13,6 +13,7 @@ export const AuthProvider = ({ children }) => {
       const response = await axios.post("http://localhost:8080/account/login", credentials);
       setUser(response.data.user);
       localStorage.setItem("token", response.data.token);
+      localStorage.setItem("accountId", response.data.account);
     } catch (error) {
       console.error("Login failed", error);
     }
@@ -20,9 +21,7 @@ export const AuthProvider = ({ children }) => {
 
   const register = async (userData) => {
     try {
-      const response = await axios.post("http://localhost:8080/account/register", userData);
-      setUser(response.data.user);
-      localStorage.setItem("token", response.data.token);
+      await axios.post("http://localhost:8080/account/register", userData);
     } catch (error) {
       console.error("Registration failed", error);
     }
@@ -36,6 +35,7 @@ export const AuthProvider = ({ children }) => {
     });
     setUser(null);
     localStorage.removeItem("token");
+    localStorage.removeItem("accountId");
   };
 
   return (
