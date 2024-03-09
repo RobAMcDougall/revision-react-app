@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/Auth";
-import axios from "axios";
+
 import "./login.css";
 
 export default function Login() {
@@ -21,15 +21,19 @@ export default function Login() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    try {
-      await axios.post("http://localhost:8080/account/login", formData);
-      setUser(formData.username);
+
+    const { username, password } = formData;
+
+    const predefinedUsername = "demdemo";
+    const predefinedPassword = "demo123456789";
+
+    if (username === predefinedUsername && password === predefinedPassword) {
+      setUser(username);
       navigate("/HomePage");
-    } catch (error) {
-      console.error("Login failed", error);
+    } else {
+      console.error("Invalid credentials");
     }
   }
-
   return (
     <div className="login-container">
       <form onSubmit={handleSubmit} className="login-form">
