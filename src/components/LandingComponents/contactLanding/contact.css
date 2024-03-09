@@ -1,0 +1,42 @@
+.contactform {
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+
+    margin: 0 auto;
+}
+
+.contact {
+    display: flex;
+    flex-direction: column;
+    display: flex;
+    row-gap: 5px;
+    margin: 0 auto;
+}
+
+label {
+    margin-bottom: 5px;
+}
+
+input,
+textarea {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.button-filed {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+button-filed:hover {
+    background-color: #0056b3;
+}

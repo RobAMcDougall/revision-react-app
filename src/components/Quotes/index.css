@@ -1,0 +1,26 @@
+.quotes-tile {
+  border: 10px solid #e4c1f988;
+  border-radius: 20px;
+  padding: 20px;
+  padding-right: 0;
+  background-color: #e4c1f996;
+  height: 260px;
+  justify-content: center;
+  display: flex;
+  max-width: 400px;
+
+}
+
+.motivational-quote {
+  display: flex;
+  width: 80%;
+  height: 50%;
+  justify-content: center;
+  align-items: center;
+  margin-left: 20px;
+  text-align: center;
+}
+
+.motivational-quote h3 {
+  font-size: 1.3rem;
+}

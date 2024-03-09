@@ -1,5 +1,11 @@
+import VideoS1 from "../../layout/videonotes";
+
 function VideoTakingPage() {
-  return <div>VideoTakingPage</div>;
+  return (
+    <>
+      <VideoS1 />
+    </>
+  );
 }
 
 export default VideoTakingPage;

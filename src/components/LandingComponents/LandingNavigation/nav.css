@@ -1,0 +1,44 @@
+.navigation {
+    background-image: linear-gradient(120deg, #d8edf5a4 10%, #b3c7ff34 100%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.landbutton {
+    margin: 10px;
+    font-size: 16px;
+    background: hsl(200, 100%, 50%, 0.1);
+    border: 1px solid hsl(200, 100%, 50%);
+    color: hsl(200, 100%, 50%);
+    padding: 1em 3rem;
+    border-radius: 0.98rem;
+    cursor: pointer;
+    outline: none;
+
+}
+
+
+
+.landbutton:hover,
+.landbutton:focus-visible {
+    background: hsl(200, 100%, 50%, 0.2)landing
+}
+
+.logo {
+    height: 100px
+}
+
+.logo-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-name {
+    font-size: 40px;
+    color: hsla(200, 53%, 48%, 0.966)
+}

@@ -11,18 +11,23 @@ function App() {
     <ThemeProvider>
       <AuthProvider>
         <Routes>
-          <Route
+          {/* <Route
             path="/HomePage"
             element={<ProtectedRoute redirectTo="/login" />}
-          >
+          > */}
             <Route path="/HomePage" element={<PageWrapper />}>
               <Route index element={<Pages.HomePage />} />
-              <Route path="VideoTaking" element={<Pages.VideoTakingPage />} />
+
+              <Route
+                path="/HomePage/VideoTaking"
+                element={<Pages.VideoTakingPage />}
+              />
             </Route>
-          </Route>
+          {/* </Route> */}
 
           <Route path="/" element={<Pages.LandingPage />} />
           <Route path="/login" element={<Pages.LoginPage />} />
+          <Route path="/register" element={<Pages.RegisterPage />} />
 
           <Route path="*" element={<Pages.NotFound />} />
         </Routes>

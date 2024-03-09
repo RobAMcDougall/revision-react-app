@@ -1,0 +1,39 @@
+.timer {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  border: 10px solid #e4c1f988;
+  border-radius: 20px;
+  padding: 30px;
+  background-color: #e4c1f996;
+}
+
+.timer-buttons {
+  display: flex;
+  flex-direction: row;
+  column-gap: 10px;
+}
+
+.timer-button {
+  background-color: #e1b0fd;
+  color: black;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+
+}
+
+.timer-button:hover {
+  background-color: #b952f588;
+
+}
+
+.timer-display {
+  font-size: 40px;
+  margin-bottom: 30px;
+}

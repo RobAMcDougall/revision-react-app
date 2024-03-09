@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+  margin: 0;
+  transition: background 0.3s linear, color 0.3s linear;
+  padding-top: 0;
+  max-width: 1300px;
+  margin: 0;
+  padding-bottom: 0px;
+  padding-top: 0px;
+  max-width: 1300px;
+
+  font-family: "Hind", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+
+}
+
+#root {
+  padding: 0;
+  margin: 0;
+  max-width: 1300;
+
+  height: 100vh;
+
+}
+
+
+body.dark {
+  background-color: #1f1f1fee;
+  color: white;
+  margin: 0;
+  transition: background 0.3s linear, color 0.3s linear;
+  padding-top: 0;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding-bottom: 0;
+  padding-top: 0;
+  max-width: 1300px;
+
+  margin: 0 auto;
+  padding-bottom: 0;
+  display: block;
+  font-family: "Hind", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+
+  .header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    padding-top: 20px;
+    background-color: #6a818f46;
+    backdrop-filter: blur(300px);
+    box-shadow: 0px 0px 10px rgba(243, 240, 240, 0.2);
+    padding: 0 20px;
+  }
+
+
+  .navLink {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    align-content: center;
+    align-items: center;
+    column-gap: 18px;
+    margin-right: 20px;
+  }
+
+  .logo {
+    font-size: 50px;
+    color: rgb(233, 229, 229)
+  }
+
+  .logo-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 20px;
+  }
+
+  .img {
+    width: 2rem;
+  }
+
+  .link {
+    font-size: 20px;
+    margin-right: 10px;
+    color: rgb(241, 237, 237);
+  }
+
+}
+
+body.light {
+  background-color: #dcecff9c;
+  color: black;
+  margin: 0;
+  transition: background 0.3s linear, color 0.3s linear;
+  padding-top: 0;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding-bottom: 0;
+  padding-top: 0;
+  max-width: 1300px;
+
+  margin: 0 auto;
+  padding-bottom: 0;
+  display: block;
+  font-family: "Hind", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}

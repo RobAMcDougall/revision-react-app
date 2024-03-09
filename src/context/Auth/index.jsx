@@ -1,13 +1,45 @@
-import { useState, useContext, createContext } from "react";
+/* eslint-disable react/prop-types */
 
-const AuthContext = createContext();
+import { createContext, useContext, useState } from "react";
+import axios from "axios";
 
-// eslint-disable-next-line react/prop-types
+const AuthContext = createContext(undefined);
+
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState();
+  const [user, setUser] = useState(null);
+
+  const login = async (credentials) => {
+    try {
+      const response = await axios.post("http://localhost:8080/account/login", credentials);
+      setUser(response.data.user);
+      localStorage.setItem("token", response.data.token);
+      localStorage.setItem("accountId", response.data.account);
+    } catch (error) {
+      console.error("Login failed", error);
+    }
+  };
+
+  const register = async (userData) => {
+    try {
+      await axios.post("http://localhost:8080/account/register", userData);
+    } catch (error) {
+      console.error("Registration failed", error);
+    }
+  };
+
+  const logout = async () => {
+    await axios.delete("http://localhost:8080/account/logout", {
+      headers: {
+        Authorization: localStorage.getItem("token")
+      }
+    });
+    setUser(null);
+    localStorage.removeItem("token");
+    localStorage.removeItem("accountId");
+  };
 
   return (
-    <AuthContext.Provider value={{ user, setUser }}>
+    <AuthContext.Provider value={{ user, login, register, logout, setUser }}>
       {children}
     </AuthContext.Provider>
   );
